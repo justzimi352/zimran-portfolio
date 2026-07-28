@@ -6,7 +6,9 @@ Personal portfolio site: medical student, media director, and student leader —
 
 ## Build
 
-A single hand-written `index.html` — no framework, no build step, no dependencies beyond Google Fonts (Bebas Neue, Archivo, JetBrains Mono). All layout and animation is plain CSS; the work grid degrades to a styled placeholder when a thumbnail is missing, so the page never renders broken.
+A single hand-written `index.html` — no framework, no build step, no dependencies beyond Google Fonts (Cormorant Garamond, Archivo). "Paper & ink" editorial system: cream paper base, ink chapters, burnished bronze accent. All layout and animation is plain CSS; the work grid degrades to a styled placeholder when a thumbnail is missing, so the page never renders broken.
+
+Work thumbnails are JPEG (~350 KB total). They were PNGs in an earlier revision — do not reintroduce those, they were roughly 5× the weight for no visible gain.
 
 ## Structure
 

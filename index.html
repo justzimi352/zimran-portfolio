@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Zimran Arif — medical student, media director and student leader. Building visual identities, brand films and research at the intersection of medicine and technology.">
-<meta name="theme-color" content="#0a0908">
+<meta name="theme-color" content="#f3eee3">
 <title>Zimran Arif — Medicine · Media · Leadership</title>
 
 <!-- Open Graph -->
@@ -12,868 +12,1504 @@
 <meta property="og:description" content="Medicine · Media · Leadership. Portfolio 2026.">
 <meta property="og:type" content="website">
 
-<!-- set JS flag as early as possible so the preloader only shows when JS can hide it -->
 <script>document.documentElement.className = document.documentElement.className.replace('no-js','js');</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Archivo:wght@400;500;600&display=swap">
 
 <style>
-  /* ============================================================
-     TOKENS  —  refined warm-black / cream / burnished gold
-     ============================================================ */
-  :root{
-    --bg:        #0a0908;
-    --bg-2:      #100d0a;
-    --panel:     #16120c;
-    --panel-2:   #1d1710;
-    --text:      #ece6da;
-    --muted:     rgba(236,230,218,0.56);
-    --faint:     rgba(236,230,218,0.30);
-    --line:      rgba(236,230,218,0.11);
-    --line-2:    rgba(236,230,218,0.06);
-    --gold:      #e0a24e;
-    --gold-hi:   #f2c988;
-    --gold-dim:  #82571f;
-    --gold-glow: rgba(224,162,78,0.14);
+/* ══════════════════════════════════════════════════════════════
+   PAPER & INK — editorial system for Zimran Arif
+   Cream paper base · ink chapters · burnished bronze thread
+   ══════════════════════════════════════════════════════════════ */
+:root{
+  --paper:      #f3eee3;
+  --paper-hi:   #f8f4ec;
+  --paper-lo:   #ece5d4;
+  --ink:        #171310;
+  --ink-2:      #1e1915;
+  --text:       #1d1815;
+  --muted:      #5f574a;
+  --faint:      #8d8271;
+  --bronze:     #8a5f24;
+  --bronze-deep:#6f4c1c;
+  --gold:       #d2a55f;
+  --gold-hi:    #e7c68d;
+  --hairline:   rgba(23,19,16,.16);
+  --hairline-2: rgba(23,19,16,.09);
 
-    --ease:   cubic-bezier(.22,1,.36,1);
-    --easeout:cubic-bezier(.16,1,.3,1);
+  --d-text:     #ede7da;
+  --d-muted:    rgba(237,231,218,.60);
+  --d-faint:    rgba(237,231,218,.34);
+  --d-hairline: rgba(237,231,218,.15);
+  --d-hairline-2:rgba(237,231,218,.08);
 
-    --pad-x: 6vw;
-    --maxw:  1320px;
-  }
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Archivo', system-ui, sans-serif;
 
-  *{ margin:0; padding:0; box-sizing:border-box; }
-  html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
-  body{ scroll-behavior:smooth; }
+  --ease:    cubic-bezier(.22,1,.36,1);
+  --easeout: cubic-bezier(.16,1,.3,1);
 
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Archivo', sans-serif;
-    overflow-x:hidden;
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
+  --pad-x: clamp(20px, 5.5vw, 84px);
+  --maxw:  1480px;
 
-  /* film grain overlay */
-  body::before{
-    content:""; position:fixed; inset:0; pointer-events:none; z-index:900;
-    opacity:0.045; mix-blend-mode:soft-light;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  /* subtle vignette for depth */
-  body::after{
-    content:""; position:fixed; inset:0; pointer-events:none; z-index:1;
-    background:radial-gradient(120% 90% at 50% 0%, transparent 55%, rgba(0,0,0,0.55) 100%);
-  }
+  /* z scale */
+  --z-nav: 50; --z-menu: 60; --z-cursor: 80; --z-loader: 90; --z-grain: 70;
+}
 
-  ::selection{ background:var(--gold); color:var(--bg); }
-  a{ color:inherit; text-decoration:none; }
-  img{ display:block; max-width:100%; }
-  .mono{ font-family:'JetBrains Mono', monospace; }
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; }
+html, body{ overflow-x:clip; }
 
-  :focus-visible{ outline:2px solid var(--gold); outline-offset:3px; border-radius:2px; }
+body{
+  background:var(--paper);
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
 
-  .wrap{ max-width:var(--maxw); margin:0 auto; }
+/* film grain */
+body::before{
+  content:""; position:fixed; inset:-2%; pointer-events:none; z-index:var(--z-grain);
+  opacity:.05; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
 
-  .skip{
-    position:absolute; left:-9999px; top:0; z-index:1000;
-    background:var(--gold); color:var(--bg); padding:10px 16px; font-size:13px;
-  }
-  .skip:focus{ left:12px; top:12px; }
+::selection{ background:var(--ink); color:var(--paper); }
+a{ color:inherit; text-decoration:none; }
+img{ display:block; max-width:100%; }
+button{ font:inherit; background:none; border:none; cursor:pointer; color:inherit; }
 
-  /* ============================================================
-     PRELOADER
-     ============================================================ */
-  #loader{
-    position:fixed; inset:0; z-index:1000; background:var(--bg);
-    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px;
-    transition:opacity .7s var(--ease), visibility .7s;
-  }
-  #loader.done{ opacity:0; visibility:hidden; }
-  html.no-js #loader{ display:none; }
-  #loader .lname{ font-family:'Bebas Neue',sans-serif; font-size:clamp(30px,6vw,54px); letter-spacing:.06em; color:var(--text); }
-  #loader .lbar{ width:min(240px,52vw); height:1px; background:var(--line); position:relative; overflow:hidden; }
-  #loader .lbar span{ position:absolute; inset:0; width:0%; background:var(--gold); transition:width .2s linear; }
-  #loader .lpct{ font-size:11px; letter-spacing:.25em; color:var(--muted); }
+:focus-visible{ outline:2px solid var(--bronze); outline-offset:4px; }
+.chapter--dark :focus-visible{ outline-color:var(--gold); }
 
-  /* ============================================================
-     SCROLL PROGRESS
-     ============================================================ */
-  #progress{ position:fixed; top:0; left:0; height:2px; width:0%; background:var(--gold); z-index:200; transition:width .1s linear; }
+.container{ max-width:var(--maxw); margin:0 auto; padding-left:var(--pad-x); padding-right:var(--pad-x); }
 
-  /* ============================================================
-     NAV
-     ============================================================ */
-  nav{
-    position:fixed; top:0; left:0; right:0; z-index:150;
-    display:flex; justify-content:space-between; align-items:center;
-    padding:22px var(--pad-x);
-    transition:padding .4s var(--ease), background .4s var(--ease), border-color .4s var(--ease);
-    border-bottom:1px solid transparent;
-  }
-  nav.scrolled{
-    padding:14px var(--pad-x);
-    background:rgba(10,9,8,0.72);
-    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--line);
-  }
-  nav .logo{ font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:.1em; display:flex; align-items:center; gap:9px; }
-  nav .logo .dot{ width:7px; height:7px; border-radius:50%; background:var(--gold); box-shadow:0 0 12px var(--gold-glow); }
-  nav .links{ display:flex; gap:30px; font-size:12px; letter-spacing:.06em; text-transform:uppercase; }
-  nav .links a{ position:relative; color:var(--muted); transition:color .25s; padding:4px 0; }
-  nav .links a::after{ content:""; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--gold); transition:width .3s var(--ease); }
-  nav .links a:hover{ color:var(--text); }
-  nav .links a:hover::after,
-  nav .links a.active::after{ width:100%; }
-  nav .links a.active{ color:var(--text); }
+.skip{
+  position:absolute; left:-9999px; top:0; z-index:100;
+  background:var(--ink); color:var(--paper); padding:10px 18px; font-size:13px; letter-spacing:.06em;
+}
+.skip:focus{ left:14px; top:14px; }
 
-  /* mobile menu */
-  .menu-btn{ display:none; flex-direction:column; gap:5px; width:34px; height:34px; align-items:center; justify-content:center; background:none; border:none; cursor:pointer; }
-  .menu-btn span{ width:22px; height:1.5px; background:var(--text); transition:transform .35s var(--ease), opacity .3s; }
-  body.menu-open .menu-btn span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
-  body.menu-open .menu-btn span:nth-child(2){ opacity:0; }
-  body.menu-open .menu-btn span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+/* ── type utilities ─────────────────────────────────────────── */
+.label{
+  font-family:var(--sans); font-size:11px; font-weight:500;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--bronze-deep);
+}
+.chapter--dark .label{ color:var(--gold); }
+.serif-i{ font-style:italic; font-weight:400; }
 
-  .mobile-menu{
-    position:fixed; inset:0; z-index:140; background:var(--bg-2);
-    display:flex; flex-direction:column; justify-content:center; gap:8px; padding:0 8vw;
-    transform:translateX(100%); transition:transform .5s var(--ease);
-  }
-  body.menu-open .mobile-menu{ transform:translateX(0); }
-  .mobile-menu a{ font-family:'Bebas Neue',sans-serif; font-size:40px; letter-spacing:.02em; color:var(--text); padding:10px 0; border-bottom:1px solid var(--line); }
-  .mobile-menu a .n{ font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--gold); margin-right:14px; }
+/* ══════════════════════ PRELOADER ═══════════════════════════ */
+#loader{
+  position:fixed; inset:0; z-index:var(--z-loader); background:var(--ink);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--d-text);
+}
+html.no-js #loader{ display:none; }
+#loader .l-inner{ text-align:center; }
+#loader .l-name{
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(34px, 6vw, 64px); letter-spacing:.01em; line-height:1.1;
+}
+#loader .l-name em{ font-style:italic; color:var(--gold); }
+#loader .l-meta{
+  margin-top:18px; display:flex; align-items:center; justify-content:center; gap:16px;
+  font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--d-muted);
+}
+#loader .l-count{ min-width:3ch; text-align:right; color:var(--gold); font-variant-numeric:tabular-nums; }
+#loader .l-rule{ width:72px; height:1px; background:var(--d-hairline); position:relative; overflow:hidden; }
+#loader .l-rule i{ position:absolute; inset:0; background:var(--gold); transform:scaleX(0); transform-origin:left; }
 
-  /* ============================================================
-     HERO
-     ============================================================ */
-  .hero{
-    min-height:100svh; min-height:100vh;
-    display:flex; flex-direction:column; justify-content:center;
-    padding:120px var(--pad-x) 90px;
-    position:relative; overflow:hidden;
-    border-bottom:1px solid var(--line);
-  }
-  .hero .aura{
-    position:absolute; z-index:0; top:-20%; right:-10%; width:70vw; height:70vw; max-width:900px; max-height:900px;
-    background:radial-gradient(circle, var(--gold-glow), transparent 62%);
-    pointer-events:none; will-change:transform;
-  }
-  .hero .inner{ position:relative; z-index:2; max-width:var(--maxw); margin:0 auto; width:100%; }
-  .hero .frame-label{
-    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
-    font-size:12px; letter-spacing:.18em; color:var(--gold);
-    margin-bottom:28px; text-transform:uppercase;
-  }
-  .hero .frame-label .rec{ display:inline-flex; align-items:center; gap:7px; color:var(--muted); }
-  .hero .frame-label .rec i{ width:8px; height:8px; border-radius:50%; background:#e0524e; box-shadow:0 0 10px rgba(224,82,78,.7); animation:blink 1.6s steps(1) infinite; }
-  @keyframes blink{ 50%{ opacity:.25; } }
+/* ══════════════════════ CURSOR ══════════════════════════════ */
+#cursor{
+  position:fixed; top:0; left:0; z-index:var(--z-cursor); pointer-events:none;
+  width:10px; height:10px; border-radius:50%;
+  background:var(--ink); mix-blend-mode:exclusion; background:#e8e2d4;
+  transform:translate(-100px,-100px);
+  display:none;
+}
+html.js.cursor-on #cursor{ display:block; }
+#cursor.is-link{ }
 
-  .hero h1{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:clamp(52px, 11.5vw, 158px);
-    line-height:0.86; letter-spacing:.005em; color:var(--text);
-  }
-  .hero h1 .ln{ display:block; overflow:hidden; }
-  .hero h1 .ln > span{ display:block; will-change:transform; }
-  .hero h1 .gold{ color:var(--gold); }
-  .hero .sub{ margin-top:32px; max-width:600px; font-size:clamp(15px,1.9vw,18px); line-height:1.65; color:var(--muted); }
+/* ══════════════════════ NAV ═════════════════════════════════ */
+#nav{
+  position:fixed; top:0; left:0; right:0; z-index:var(--z-nav);
+  transition:background .5s var(--ease), border-color .5s var(--ease), transform .5s var(--ease);
+  border-bottom:1px solid transparent;
+}
+#nav .n-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px var(--pad-x);
+  transition:padding .5s var(--ease);
+}
+#nav.scrolled{
+  background:rgba(243,238,227,.82);
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--hairline-2);
+}
+#nav.scrolled .n-inner{ padding-top:13px; padding-bottom:13px; }
+#nav.over-dark:not(.scrolled){ color:var(--d-text); }
 
-  .hero .cta-row{ margin-top:40px; display:flex; align-items:center; gap:26px; flex-wrap:wrap; }
-  .btn{
-    display:inline-flex; align-items:center; gap:11px;
-    padding:15px 26px; font-size:13px; letter-spacing:.08em; text-transform:uppercase;
-    background:var(--gold); color:var(--bg); font-weight:600; border-radius:2px;
-    transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .3s;
-  }
-  .btn:hover{ transform:translateY(-2px); box-shadow:0 14px 34px -12px var(--gold); }
-  .btn svg{ width:15px; height:15px; transition:transform .3s var(--ease); }
-  .btn:hover svg{ transform:translateX(4px); }
-  .btn.ghost{ background:transparent; color:var(--text); border:1px solid var(--line); }
-  .btn.ghost:hover{ border-color:var(--gold); color:var(--gold); box-shadow:none; }
+.n-logo{
+  font-family:var(--serif); font-size:21px; font-weight:600; letter-spacing:.01em; line-height:1;
+  display:inline-flex; align-items:baseline; gap:2px;
+}
+.n-logo em{ font-style:italic; font-weight:400; }
+.n-logo .dot{ color:var(--bronze); }
+#nav.over-dark:not(.scrolled) .n-logo .dot{ color:var(--gold); }
 
-  .hero .scroll-cue{
-    position:absolute; bottom:34px; left:var(--pad-x); z-index:2;
-    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
-    display:flex; align-items:center; gap:12px;
-  }
-  .scroll-cue .bar{ width:1px; height:40px; background:var(--line); position:relative; overflow:hidden; }
-  .scroll-cue .bar::after{ content:""; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--gold); animation:reel 1.9s var(--ease) infinite; }
-  @keyframes reel{ 0%{ top:-100%; } 55%,100%{ top:100%; } }
+.n-links{ display:flex; gap:34px; }
+.n-links a{
+  position:relative; padding:4px 0;
+  font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--muted); transition:color .3s;
+}
+#nav.over-dark:not(.scrolled) .n-links a{ color:var(--d-muted); }
+.n-links a::after{
+  content:""; position:absolute; left:0; bottom:0; height:1px; width:100%;
+  background:currentColor; transform:scaleX(0); transform-origin:right;
+  transition:transform .45s var(--ease);
+}
+.n-links a:hover, .n-links a.active{ color:var(--text); }
+#nav.over-dark:not(.scrolled) .n-links a:hover,
+#nav.over-dark:not(.scrolled) .n-links a.active{ color:var(--d-text); }
+.n-links a:hover::after, .n-links a.active::after{ transform:scaleX(1); transform-origin:left; }
 
-  /* ============================================================
-     MARQUEE
-     ============================================================ */
-  .marquee{ overflow:hidden; border-bottom:1px solid var(--line); background:var(--bg-2); padding:26px 0; }
-  .marquee .track{ display:flex; width:max-content; gap:60px; animation:scroll-x 34s linear infinite; }
-  .marquee:hover .track{ animation-play-state:paused; }
-  .marquee .item{ font-family:'Bebas Neue',sans-serif; font-size:clamp(26px,3.4vw,44px); letter-spacing:.03em; color:var(--faint); display:flex; align-items:center; gap:60px; white-space:nowrap; }
-  .marquee .item::after{ content:""; width:9px; height:9px; border-radius:50%; background:var(--gold); flex:none; }
-  @keyframes scroll-x{ to{ transform:translateX(-50%); } }
+.menu-btn{
+  display:none; align-items:center; gap:10px; padding:8px 2px;
+  font-size:11px; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+}
+.menu-btn .mb-ico{ position:relative; width:26px; height:12px; }
+.menu-btn .mb-ico span{
+  position:absolute; left:0; width:100%; height:1.5px; background:currentColor;
+  transition:transform .4s var(--ease), top .4s var(--ease);
+}
+.menu-btn .mb-ico span:nth-child(1){ top:0; }
+.menu-btn .mb-ico span:nth-child(2){ top:10px; }
+body.menu-open .menu-btn .mb-ico span:nth-child(1){ top:5px; transform:rotate(45deg); }
+body.menu-open .menu-btn .mb-ico span:nth-child(2){ top:5px; transform:rotate(-45deg); }
 
-  /* ============================================================
-     SECTIONS
-     ============================================================ */
-  section{ padding:clamp(70px,10vw,120px) var(--pad-x); border-bottom:1px solid var(--line); position:relative; }
-  section .wrap{ position:relative; }
-  .sec-head{ margin-bottom:clamp(40px,6vw,64px); }
-  .eyebrow{ display:flex; align-items:center; gap:12px; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:18px; }
-  .eyebrow::before{ content:attr(data-n); font-family:'JetBrains Mono',monospace; color:var(--gold-dim); }
-  h2.section-title{ font-family:'Bebas Neue',sans-serif; font-size:clamp(38px,6.2vw,74px); line-height:0.95; letter-spacing:.01em; }
-  .sec-head .lead{ margin-top:16px; max-width:560px; font-size:16px; line-height:1.6; color:var(--muted); }
-  h3.sub-title{ font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:.04em; color:var(--gold); margin:64px 0 26px; display:flex; align-items:center; gap:14px; }
-  h3.sub-title::before{ content:""; width:26px; height:1px; background:var(--gold-dim); }
-  h3.sub-title:first-of-type{ margin-top:0; }
+/* mobile menu */
+#mmenu{
+  position:fixed; inset:0; z-index:var(--z-menu); background:var(--ink);
+  color:var(--d-text);
+  display:flex; flex-direction:column; justify-content:center;
+  padding:0 var(--pad-x);
+  clip-path:inset(0 0 100% 0);
+  visibility:hidden;
+  transition:clip-path .7s var(--easeout), visibility 0s .7s;
+}
+body.menu-open #mmenu{ clip-path:inset(0 0 0% 0); visibility:visible; transition:clip-path .7s var(--easeout), visibility 0s; }
+#mmenu a.mm-link{
+  display:flex; align-items:baseline; gap:20px;
+  padding:14px 0; border-bottom:1px solid var(--d-hairline-2);
+  font-family:var(--serif); font-size:clamp(38px, 9vw, 64px); font-weight:500; line-height:1.05;
+  transform:translateY(30px); opacity:0;
+  transition:transform .7s var(--ease), opacity .7s var(--ease), color .3s;
+}
+body.menu-open #mmenu a.mm-link{ transform:none; opacity:1; }
+#mmenu a.mm-link:nth-child(2){ transition-delay:.08s; } #mmenu a.mm-link:nth-child(3){ transition-delay:.14s; }
+#mmenu a.mm-link:nth-child(4){ transition-delay:.20s; } #mmenu a.mm-link:nth-child(5){ transition-delay:.26s; }
+#mmenu a.mm-link:nth-child(6){ transition-delay:.32s; }
+#mmenu a.mm-link:hover{ color:var(--gold); }
+#mmenu a.mm-link .n{ font-family:var(--sans); font-size:11px; letter-spacing:.2em; color:var(--gold); }
+#mmenu .mm-foot{ margin-top:44px; display:flex; gap:26px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--d-muted);
+  opacity:0; transition:opacity .7s var(--ease) .36s; }
+body.menu-open #mmenu .mm-foot{ opacity:1; }
+#mmenu .mm-foot a:hover{ color:var(--gold); }
 
-  /* ---- REEL / WORK ---- */
-  .reel{ display:grid; grid-template-columns:repeat(auto-fill, minmax(340px,1fr)); gap:20px; }
-  .frame{
-    position:relative; display:block; background:var(--panel);
-    aspect-ratio:16/10; overflow:hidden; border:1px solid var(--line);
-    border-radius:4px; cursor:pointer;
-    transition:transform .5s var(--ease), border-color .5s var(--ease), box-shadow .5s var(--ease);
-  }
-  .frame:hover{ transform:translateY(-5px); border-color:rgba(224,162,78,.4); box-shadow:0 22px 46px -22px rgba(0,0,0,.9); }
-  .frame .thumb{ position:absolute; inset:0; }
-  .frame .thumb-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .6s var(--ease), transform .7s var(--ease); }
-  .frame .thumb-img.loaded{ opacity:1; }
-  .frame:hover .thumb-img.loaded{ transform:scale(1.05); }
-  /* cinematic placeholder shown behind image (and when no image) */
-  .frame .plate{
-    position:absolute; inset:0;
-    background:
-      linear-gradient(155deg, rgba(224,162,78,.16), transparent 58%),
-      radial-gradient(120% 120% at 80% 10%, rgba(224,162,78,.10), transparent 50%),
-      repeating-linear-gradient(45deg, rgba(236,230,218,.03) 0, rgba(236,230,218,.03) 2px, transparent 2px, transparent 15px),
-      var(--panel);
-    transition:transform .7s var(--ease);
-  }
-  .frame:hover .plate{ transform:scale(1.05); }
-  .frame .plate .big-n{ position:absolute; right:16px; bottom:64px; font-family:'Bebas Neue',sans-serif; font-size:84px; line-height:1; color:rgba(236,230,218,.06); }
-  .frame .scrim{ position:absolute; inset:0; background:linear-gradient(to top, rgba(6,5,4,.85) 2%, rgba(6,5,4,.15) 45%, transparent 70%); }
-  .frame .tc{ position:absolute; top:14px; left:16px; font-size:11px; letter-spacing:.05em; color:var(--text); background:rgba(0,0,0,.4); padding:3px 8px; border-radius:2px; backdrop-filter:blur(4px); }
-  .frame .play{
-    position:absolute; top:50%; left:50%; width:60px; height:60px; margin:-30px 0 0 -30px;
-    border:1px solid rgba(236,230,218,.6); border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    background:rgba(10,9,8,.35); backdrop-filter:blur(4px);
-    opacity:0; transform:scale(.8); transition:opacity .4s var(--ease), transform .4s var(--ease), background .3s, border-color .3s;
-  }
-  .frame:hover .play{ opacity:1; transform:scale(1); }
-  .frame:hover .play{ background:var(--gold); border-color:var(--gold); }
-  .frame .play svg{ width:20px; height:20px; fill:var(--text); margin-left:2px; transition:fill .3s; }
-  .frame:hover .play svg{ fill:var(--bg); }
-  .frame .info{ position:absolute; left:0; right:0; bottom:0; padding:22px 20px; }
-  .frame .info .cat{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:7px; }
-  .frame .info h3{ font-family:'Bebas Neue',sans-serif; font-size:27px; letter-spacing:.01em; font-weight:400; line-height:1.05; }
-  .frame .info p{ font-size:13px; color:var(--muted); margin-top:6px; max-width:92%; }
+/* progress hairline */
+#progress{ position:fixed; top:0; left:0; z-index:calc(var(--z-nav) + 1); height:2px; width:100%; background:var(--bronze); transform:scaleX(0); transform-origin:left; }
 
-  /* ---- TIMELINE ---- */
-  .timeline{ display:flex; flex-direction:column; }
-  .time-row{
-    display:grid; grid-template-columns:150px 1fr; gap:36px; padding:30px 0; border-bottom:1px solid var(--line);
-    transition:background .4s var(--ease); position:relative;
-  }
-  .time-row::before{ content:""; position:absolute; left:-6vw; top:0; bottom:-1px; width:2px; background:var(--gold); transform:scaleY(0); transform-origin:top; transition:transform .5s var(--ease); }
-  .time-row:hover::before{ transform:scaleY(1); }
-  .time-row:hover{ background:linear-gradient(90deg, rgba(224,162,78,.04), transparent 70%); }
-  .time-row .date{ font-size:12px; color:var(--gold); letter-spacing:.06em; padding-top:5px; }
-  .time-row .role{ font-size:20px; font-weight:600; color:var(--text); margin-bottom:5px; }
-  .time-row .org{ font-size:12px; color:var(--muted); margin-bottom:11px; text-transform:uppercase; letter-spacing:.05em; }
-  .time-row .desc{ font-size:15px; line-height:1.62; color:var(--muted); max-width:660px; }
+/* ══════════════════════ HERO ════════════════════════════════ */
+.hero{
+  position:relative; min-height:100svh;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:90px var(--pad-x) 0; overflow:hidden;
+}
+.hero-bg{
+  position:absolute; inset:0; pointer-events:none;
+}
+.hero-bg .glow{
+  position:absolute; top:-24%; right:-12%; width:64vw; height:64vw; max-width:920px; max-height:920px;
+  background:radial-gradient(circle, rgba(210,165,95,.20), rgba(210,165,95,.05) 46%, transparent 66%);
+  will-change:transform;
+}
+.hero-bg .cols{ position:absolute; inset:0; max-width:var(--maxw); margin:0 auto; }
+.hero-bg .cols i{ position:absolute; top:0; bottom:0; width:1px; background:var(--hairline-2); }
+.hero-bg .cols i:nth-child(1){ left:25%; } .hero-bg .cols i:nth-child(2){ left:50%; } .hero-bg .cols i:nth-child(3){ left:75%; }
 
-  /* ---- PUBLICATIONS ---- */
-  .pub-list{ display:flex; flex-direction:column; }
-  .pub-row{ padding:24px 0; border-bottom:1px solid var(--line); transition:padding-left .4s var(--ease); }
-  .pub-row:hover{ padding-left:14px; }
-  .pub-row .ptitle{ font-size:17px; font-weight:600; color:var(--text); margin-bottom:7px; line-height:1.4; }
-  .pub-row .pmeta{ font-size:12px; color:var(--gold); text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px; }
-  .pub-row .pdesc{ font-size:14px; color:var(--muted); line-height:1.6; max-width:660px; }
+.hero-inner{ position:relative; z-index:2; max-width:var(--maxw); margin:0 auto; width:100%; }
 
-  .tags{ display:flex; flex-wrap:wrap; gap:11px; }
-  .tag{ border:1px solid var(--line); padding:10px 17px; font-size:13px; color:var(--muted); border-radius:2px; transition:border-color .3s, color .3s, background .3s; }
-  .tag:hover{ border-color:var(--gold-dim); color:var(--text); background:rgba(224,162,78,.05); }
+.hero-kicker{
+  display:flex; justify-content:space-between; align-items:baseline; gap:20px;
+  padding-bottom:22px; border-bottom:1px solid var(--hairline);
+}
+.hero-kicker .k-right{ color:var(--muted); }
 
-  /* ---- STAT STRIP ---- */
-  .stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:var(--line); border:1px solid var(--line); border-radius:4px; overflow:hidden; margin-top:56px; }
-  .stat{ background:var(--bg); padding:30px 26px; }
-  .stat .num{ font-family:'Bebas Neue',sans-serif; font-size:clamp(34px,5vw,52px); color:var(--gold); line-height:1; }
-  .stat .lab{ font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-top:10px; }
+.hero h1{
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(56px, 11.5vw, 172px);
+  line-height:.88; letter-spacing:-.015em;
+  margin:clamp(16px,2.6vw,34px) 0 clamp(14px,2.2vw,30px);
+  color:var(--ink);
+}
+.hero h1 .ln{ display:block; overflow:hidden; }
+.hero h1 .ln > span{ display:block; will-change:transform; }
+.hero h1 .ln.ln-2{ padding-left:clamp(40px, 12vw, 220px); }
+.hero h1 em{ font-style:italic; font-weight:400; }
+.hero h1 .fullstop{ color:var(--bronze); font-style:normal; }
 
-  /* ---- ABOUT ---- */
-  .about-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:80px; align-items:start; }
-  .about-grid p{ font-size:clamp(16px,2vw,19px); line-height:1.75; color:var(--muted); margin-bottom:22px; }
-  .about-grid p strong{ color:var(--text); font-weight:600; }
-  .specs{ border-left:1px solid var(--line); padding-left:38px; display:flex; flex-direction:column; gap:0; }
-  .specs .spec-row{ display:flex; justify-content:space-between; gap:18px; font-size:14px; padding:16px 0; border-bottom:1px solid var(--line); }
-  .specs .spec-row:first-child{ padding-top:0; }
-  .specs .spec-row .k{ color:var(--muted); letter-spacing:.05em; text-transform:uppercase; font-size:11px; white-space:nowrap; }
-  .specs .spec-row .v{ color:var(--text); text-align:right; }
+.hero-base{
+  display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:end;
+  padding:20px 0 clamp(30px,4vw,48px); border-top:1px solid var(--hairline);
+}
+.hero-role{
+  font-family:var(--serif); font-size:clamp(19px,2.2vw,26px); font-style:italic; font-weight:400;
+  color:var(--muted); line-height:1.35; max-width:420px;
+}
+.hero-role strong{ font-style:normal; font-weight:600; color:var(--text); }
+.hero-right{ justify-self:end; max-width:440px; }
+.hero-right p{ font-size:15px; line-height:1.7; color:var(--muted); }
+.hero-ctas{ display:flex; align-items:center; gap:28px; margin-top:24px; flex-wrap:wrap; }
 
-  /* ---- CONTACT ---- */
-  .contact{ border-bottom:none; }
-  .contact-inner{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:48px; }
-  .contact h2{ font-family:'Bebas Neue',sans-serif; font-size:clamp(42px,7.5vw,96px); line-height:0.94; max-width:680px; letter-spacing:.01em; }
-  .contact h2 .gold{ color:var(--gold); }
-  .contact .email-link{ font-size:clamp(18px,2.4vw,24px); border-bottom:1px solid var(--gold); padding-bottom:5px; color:var(--gold); transition:opacity .25s, letter-spacing .3s; display:inline-block; }
-  .contact .email-link:hover{ opacity:.75; letter-spacing:.01em; }
-  .contact .phone{ margin-top:16px; font-size:14px; color:var(--muted); }
-  .socials{ display:flex; gap:28px; margin-top:34px; font-size:13px; letter-spacing:.05em; text-transform:uppercase; }
-  .socials a{ color:var(--muted); transition:color .25s; position:relative; }
-  .socials a::after{ content:""; position:absolute; left:0; bottom:-4px; height:1px; width:0; background:var(--gold); transition:width .3s var(--ease); }
-  .socials a:hover{ color:var(--gold); }
-  .socials a:hover::after{ width:100%; }
-  .socials a[hidden]{ display:none; }
+.lnk{
+  position:relative; display:inline-flex; align-items:center; gap:9px;
+  font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  padding:4px 0; cursor:pointer;
+}
+.lnk::after{
+  content:""; position:absolute; left:0; bottom:-1px; height:1px; width:100%;
+  background:currentColor; transform-origin:right; transition:transform .45s var(--ease);
+}
+.lnk:hover::after{ transform:scaleX(0); transform-origin:right; }
+.lnk svg{ width:13px; height:13px; transition:transform .35s var(--ease); }
+.lnk:hover svg{ transform:translate(3px,-3px); }
+.lnk.down:hover svg{ transform:translateY(4px); }
+.lnk--bronze{ color:var(--bronze-deep); }
 
-  footer{ padding:30px var(--pad-x); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; font-size:11px; color:var(--muted); letter-spacing:.06em; }
-  footer .to-top{ display:inline-flex; align-items:center; gap:8px; transition:color .25s; }
-  footer .to-top:hover{ color:var(--gold); }
-  footer .to-top svg{ width:13px; height:13px; }
+.hero-cue{
+  position:absolute; left:50%; bottom:26px; transform:translateX(-50%); z-index:2;
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:var(--faint);
+}
+.hero-cue .bar{ width:1px; height:44px; background:var(--hairline); position:relative; overflow:hidden; }
+.hero-cue .bar::after{ content:""; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--bronze); animation:cue 2s var(--ease) infinite; }
+@keyframes cue{ 0%{ top:-100%; } 55%,100%{ top:100%; } }
 
-  /* ============================================================
-     REVEAL ANIMATIONS  (GPU friendly, opacity + transform only)
-     ============================================================ */
-  .js [data-reveal]{ opacity:0; transform:translateY(26px); transition:opacity .8s var(--easeout), transform .8s var(--easeout); transition-delay:var(--d,0ms); will-change:opacity,transform; }
-  .js [data-reveal].in{ opacity:1; transform:none; }
-  .js [data-reveal="fade"]{ transform:none; }
+/* ══════════════════════ MARQUEE ═════════════════════════════ */
+.marquee{
+  overflow:hidden; padding:clamp(30px,4.5vw,54px) 0;
+  border-bottom:1px solid var(--hairline-2);
+}
+.marquee .track{ display:flex; width:max-content; animation:mq 44s linear infinite; }
+.marquee:hover .track{ animation-play-state:paused; }
+.marquee .set{ display:flex; align-items:baseline; white-space:nowrap; padding-right:0; }
+.marquee .set span{
+  font-family:var(--serif); font-style:italic; font-weight:400;
+  font-size:clamp(30px, 5vw, 62px); color:var(--ink); opacity:.16;
+  padding:0 .65em;
+}
+.marquee .set i{ font-style:normal; color:var(--bronze); opacity:.5; font-size:clamp(14px,2vw,22px); transform:translateY(-8px); }
+@keyframes mq{ to{ transform:translateX(-50%); } }
 
-  /* ============================================================
-     RESPONSIVE
-     ============================================================ */
-  @media(max-width:1024px){
-    .about-grid{ gap:56px; }
-  }
-  @media(max-width:820px){
-    :root{ --pad-x:7vw; }
-    nav .links{ display:none; }
-    .menu-btn{ display:flex; }
-    .about-grid{ grid-template-columns:1fr; gap:44px; }
-    .specs{ border-left:none; border-top:1px solid var(--line); padding-left:0; padding-top:8px; }
-    .time-row{ grid-template-columns:1fr; gap:8px; }
-    .time-row::before{ display:none; }
-    .time-row .date{ padding-top:0; }
-    .stats{ grid-template-columns:repeat(2,1fr); }
-    .reel{ grid-template-columns:1fr; }
-    .contact-inner{ flex-direction:column; align-items:flex-start; }
-  }
-  @media(max-width:440px){
-    .stats{ grid-template-columns:1fr 1fr; }
-    .frame .info h3{ font-size:23px; }
-  }
+/* ══════════════════════ CHAPTERS ════════════════════════════ */
+.chapter{ position:relative; padding:clamp(84px, 11vw, 160px) var(--pad-x); }
+.chapter--dark{
+  background:var(--ink); color:var(--d-text);
+}
+.chapter--dark ::selection{ background:var(--gold); color:var(--ink); }
+.chapter--tint{ background:var(--paper-lo); }
 
-  @media (prefers-reduced-motion: reduce){
-    html, body{ scroll-behavior:auto; }
-    *{ animation:none !important; transition-duration:.001ms !important; }
-    .js [data-reveal]{ opacity:1 !important; transform:none !important; }
-    #loader{ display:none !important; }
-  }
+.ch-head{ max-width:var(--maxw); margin:0 auto clamp(48px, 7vw, 96px); }
+.ch-index{
+  display:flex; align-items:center; gap:18px; margin-bottom:22px;
+}
+.ch-index .rule{ flex:1; height:1px; background:var(--hairline); }
+.chapter--dark .ch-index .rule{ background:var(--d-hairline); }
+.ch-index .num{
+  font-family:var(--serif); font-style:italic; font-size:15px; color:var(--bronze);
+  letter-spacing:.08em;
+}
+.chapter--dark .ch-index .num{ color:var(--gold); }
+
+.ch-title{
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(44px, 7.5vw, 104px); line-height:.96; letter-spacing:-.01em;
+}
+.ch-title em{ font-style:italic; font-weight:400; }
+.ch-title .ln{ display:block; overflow:hidden; }
+.ch-title .ln > span{ display:block; }
+.ch-lead{ margin-top:22px; max-width:520px; font-size:15.5px; line-height:1.7; color:var(--muted); }
+.chapter--dark .ch-lead{ color:var(--d-muted); }
+
+.ch-body{ max-width:var(--maxw); margin:0 auto; }
+
+/* ══════════════════════ MANIFESTO ═══════════════════════════ */
+.manifesto{ padding:clamp(90px, 13vw, 190px) var(--pad-x); }
+.manifesto .m-inner{ max-width:1100px; margin:0 auto; }
+.manifesto p.big{
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(30px, 4.6vw, 62px); line-height:1.22; letter-spacing:-.005em;
+  color:var(--ink);
+}
+.manifesto p.big em{ font-style:italic; font-weight:400; color:var(--bronze-deep); }
+.manifesto .m-word{ display:inline-block; }
+.manifesto .m-foot{
+  margin-top:40px; display:flex; align-items:center; gap:18px;
+}
+.manifesto .m-foot .rule{ width:64px; height:1px; background:var(--hairline); }
+
+/* ══════════════════════ WORK ════════════════════════════════ */
+.works{ display:flex; flex-direction:column; gap:clamp(70px, 9vw, 130px); }
+
+.work{ display:block; }
+.work .w-media{
+  position:relative; overflow:hidden; background:var(--ink-2);
+}
+.work .w-media::before{ content:""; display:block; padding-top:66%; }
+.work--feature .w-media::before{ padding-top:48%; }
+.work .w-media > .w-frame{ position:absolute; inset:0; overflow:hidden; }
+.work .w-media img{
+  position:absolute; inset:-7% 0; width:100%; height:114%; object-fit:cover;
+  opacity:0; transition:opacity .45s var(--ease);
+  will-change:transform;
+}
+.work .w-media img.loaded{ opacity:1; }
+/* editorial fallback plate behind image */
+.work .w-plate{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  background:
+    radial-gradient(110% 110% at 82% 8%, rgba(210,165,95,.14), transparent 52%),
+    linear-gradient(150deg, #241d15, #171310 62%);
+}
+.work .w-plate span{
+  font-family:var(--serif); font-style:italic; font-size:clamp(60px,9vw,130px);
+  color:rgba(237,231,218,.07); line-height:1;
+}
+.work .w-veil{
+  position:absolute; inset:0; background:var(--paper);
+  transform-origin:top;
+}
+.work .w-tag{
+  position:absolute; top:18px; left:20px; z-index:3;
+  font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--d-text); background:rgba(23,19,16,.5); padding:7px 12px;
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  opacity:0; transform:translateY(-6px);
+  transition:opacity .45s var(--ease), transform .45s var(--ease);
+}
+.work:hover .w-tag{ opacity:1; transform:none; }
+
+.work .w-info{
+  display:grid; grid-template-columns:auto 1fr auto; align-items:baseline; gap:8px 28px;
+  padding-top:22px;
+}
+.work .w-num{
+  font-family:var(--serif); font-style:italic; font-size:15px; color:var(--bronze); letter-spacing:.06em;
+}
+.work .w-title{
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(27px, 3.4vw, 46px); line-height:1.05; letter-spacing:-.005em;
+  transition:color .35s;
+}
+.work:hover .w-title{ color:var(--bronze-deep); }
+.work .w-arrow{
+  align-self:center; width:38px; height:38px; border:1px solid var(--hairline); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  transition:background .4s var(--ease), border-color .4s var(--ease), transform .4s var(--ease);
+}
+.work .w-arrow svg{ width:14px; height:14px; transition:transform .4s var(--ease); stroke:currentColor; }
+.work:hover .w-arrow{ background:var(--ink); border-color:var(--ink); color:var(--paper); transform:rotate(45deg); }
+.work .w-meta{
+  grid-column:1 / -1; display:flex; gap:14px; align-items:baseline;
+  font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+}
+.work .w-meta .sep{ width:22px; height:1px; background:var(--hairline); align-self:center; }
+.work .w-desc{ grid-column:1 / -1; max-width:520px; font-size:14.5px; color:var(--muted); line-height:1.65; }
+
+/* alternating editorial rows */
+.work-row{ display:grid; grid-template-columns:repeat(12, 1fr); gap:0 clamp(16px,2.5vw,36px); align-items:start; }
+.work-row .work{ grid-column:span 7; }
+.work-row .work:nth-child(even){ grid-column:span 5; margin-top:clamp(60px, 9vw, 140px); }
+.work-row .work:nth-child(even) .w-media::before{ padding-top:80%; }
+.work-row + .work-row .work:nth-child(odd){ grid-column:6 / span 7; }
+.work-row + .work-row .work:nth-child(even){ grid-column:1 / span 5; grid-row:1; }
+
+/* ══════════════════════ LEADERSHIP ══════════════════════════ */
+.roles{ border-top:1px solid var(--hairline); }
+.role-row{
+  position:relative;
+  display:grid; grid-template-columns:150px 1.1fr 1.3fr; gap:12px 40px;
+  padding:clamp(24px,3vw,34px) 0; border-bottom:1px solid var(--hairline);
+  transition:padding-left .45s var(--ease);
+}
+.role-row::before{
+  content:""; position:absolute; left:0; top:-1px; height:1px; width:0;
+  background:var(--bronze); transition:width .6s var(--ease);
+}
+.role-row:hover{ padding-left:16px; }
+.role-row:hover::before{ width:100%; }
+.role-row .r-date{ font-size:11px; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--bronze-deep); padding-top:8px; }
+.role-row .r-role{
+  font-family:var(--serif); font-size:clamp(23px,2.6vw,32px); font-weight:500; line-height:1.1;
+}
+.role-row .r-org{ margin-top:6px; font-size:11px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+.role-row .r-desc{ font-size:14.5px; line-height:1.7; color:var(--muted); max-width:560px; padding-top:6px; }
+
+/* ══════════════════════ MEDICINE (dark) ═════════════════════ */
+.med-block{ margin-top:clamp(56px, 7vw, 84px); }
+.med-block:first-of-type{ margin-top:0; }
+.med-sub{
+  display:flex; align-items:baseline; gap:18px; margin-bottom:8px;
+}
+.med-sub h3{
+  font-family:var(--serif); font-style:italic; font-weight:400;
+  font-size:clamp(24px, 3vw, 34px); color:var(--gold);
+}
+.med-sub .rule{ flex:1; height:1px; background:var(--d-hairline-2); align-self:center; }
+.med-sub .count{ font-size:11px; letter-spacing:.2em; color:var(--d-faint); }
+
+.med-list{ }
+.med-row{
+  display:grid; grid-template-columns:1fr auto; gap:6px 40px; align-items:baseline;
+  padding:22px 0; border-bottom:1px solid var(--d-hairline-2);
+  transition:padding-left .45s var(--ease);
+}
+.med-row:hover{ padding-left:14px; }
+.med-row .m-title{
+  font-family:var(--serif); font-size:clamp(19px, 2.2vw, 26px); font-weight:500; line-height:1.25;
+  max-width:760px;
+}
+.med-row .m-meta{
+  font-size:11px; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--gold);
+  text-align:right; white-space:nowrap;
+}
+.med-row .m-desc{ grid-column:1 / -1; font-size:14px; line-height:1.7; color:var(--d-muted); max-width:680px; }
+
+.med-tags{ display:flex; flex-wrap:wrap; gap:10px; padding-top:18px; }
+.med-tags span{
+  border:1px solid var(--d-hairline); padding:10px 16px;
+  font-size:12px; letter-spacing:.04em; color:var(--d-muted);
+  transition:border-color .3s, color .3s, background .3s;
+}
+.med-tags span:hover{ border-color:var(--gold); color:var(--d-text); background:rgba(210,165,95,.06); }
+
+/* ══════════════════════ ABOUT ═══════════════════════════════ */
+.about-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(44px,6vw,96px); align-items:start; }
+.about-copy .a-lead{
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(24px, 3vw, 36px); line-height:1.3; letter-spacing:-.005em;
+  margin-bottom:28px;
+}
+.about-copy .a-lead em{ font-style:italic; font-weight:400; color:var(--bronze-deep); }
+.about-copy p{ font-size:16px; line-height:1.8; color:var(--muted); margin-bottom:18px; }
+.about-copy p strong{ color:var(--text); font-weight:600; }
+
+.specs{ border-top:1px solid var(--hairline); }
+.spec-row{
+  display:flex; justify-content:space-between; align-items:baseline; gap:20px;
+  padding:17px 0; border-bottom:1px solid var(--hairline);
+}
+.spec-row .k{ font-size:10.5px; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); white-space:nowrap; }
+.spec-row .v{ font-family:var(--serif); font-size:18px; font-weight:500; text-align:right; }
+
+.stats{
+  margin-top:clamp(60px,8vw,100px);
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--hairline);
+}
+.stat{ padding:clamp(26px,3vw,40px) clamp(18px,2vw,32px) 0; border-left:1px solid var(--hairline); }
+.stat:first-child{ border-left:none; padding-left:0; }
+.stat .num{
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(52px, 7vw, 104px); line-height:1; color:var(--ink);
+  font-variant-numeric:tabular-nums;
+}
+.stat .num sup{ font-size:.45em; color:var(--bronze); font-style:italic; font-weight:400; vertical-align:super; }
+.stat .lab{ margin-top:12px; font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); }
+
+/* ══════════════════════ CONTACT (dark) ══════════════════════ */
+.contact{ padding-bottom:clamp(74px,9vw,120px); }
+.contact .c-title{
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(44px, 8vw, 122px); line-height:.98; letter-spacing:-.015em;
+}
+.contact .c-title em{ font-style:italic; font-weight:400; color:var(--gold); }
+.contact .c-title .ln{ display:block; overflow:hidden; }
+.contact .c-title .ln > span{ display:block; }
+.contact .c-title .ln.ln-2{ padding-left:clamp(18px, 5vw, 88px); }
+
+.contact .c-grid{
+  margin-top:clamp(48px,6vw,80px);
+  display:grid; grid-template-columns:1fr auto; gap:44px; align-items:end;
+  padding-bottom:0;
+}
+.contact .c-mail{
+  display:inline-block;
+  font-family:var(--serif); font-style:italic; font-weight:400;
+  font-size:clamp(22px, 3.4vw, 42px); color:var(--d-text);
+  position:relative; padding-bottom:6px;
+}
+.contact .c-mail::after{
+  content:""; position:absolute; left:0; bottom:0; height:1px; width:100%;
+  background:var(--gold); transform-origin:right; transition:transform .5s var(--ease);
+}
+.contact .c-mail:hover{ color:var(--gold); }
+.contact .c-mail:hover::after{ transform:scaleX(0); }
+.contact .c-phone{ margin-top:14px; font-size:13px; letter-spacing:.08em; color:var(--d-muted); }
+.contact .c-social{ display:flex; gap:26px; justify-self:end; }
+.contact .c-social a{
+  font-size:11px; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--d-muted);
+  position:relative; padding:4px 0; transition:color .3s;
+}
+.contact .c-social a::after{ content:""; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--gold); transition:width .4s var(--ease); }
+.contact .c-social a:hover{ color:var(--gold); }
+.contact .c-social a:hover::after{ width:100%; }
+.contact .c-social a[hidden]{ display:none; }
+
+/* ══════════════════════ FLOATING FOOTER ═════════════════════ */
+.site-footer{
+  background:var(--paper);
+  padding:clamp(14px,2.4vw,34px) clamp(12px,2.4vw,40px) clamp(16px,2.4vw,34px);
+}
+.foot-card{
+  position:relative; overflow:hidden; isolation:isolate;
+  max-width:var(--maxw); margin:0 auto;
+  color:var(--d-text);
+  border-radius:clamp(18px,2vw,30px);
+  padding:clamp(40px,5vw,76px) clamp(26px,4vw,64px) clamp(24px,2.6vw,38px);
+  background:
+    radial-gradient(130% 150% at 90% 4%, rgba(210,165,95,.16), transparent 52%),
+    linear-gradient(165deg, #21332c 0%, #152420 72%);
+}
+.foot-card::after{
+  content:""; position:absolute; right:-150px; bottom:-190px; z-index:-1;
+  width:580px; height:580px; pointer-events:none;
+  background:repeating-radial-gradient(circle, rgba(237,231,218,.06) 0 1px, transparent 1px 42px);
+  -webkit-mask:radial-gradient(circle, #000 24%, transparent 70%);
+  mask:radial-gradient(circle, #000 24%, transparent 70%);
+}
+.foot-top{
+  display:grid; grid-template-columns:1.5fr 1fr; gap:clamp(36px,5vw,72px);
+  padding-bottom:clamp(32px,4vw,50px); border-bottom:1px solid var(--d-hairline-2);
+}
+.foot-wordmark{ font-family:var(--serif); font-weight:600; font-size:clamp(30px,4vw,46px); line-height:1; letter-spacing:.005em; }
+.foot-wordmark em{ font-style:italic; font-weight:400; }
+.foot-wordmark .dot{ color:var(--gold); }
+.foot-tag{ margin-top:16px; max-width:360px; font-size:14.5px; line-height:1.65; color:var(--d-muted); }
+.foot-socials{ display:flex; gap:12px; margin-top:26px; }
+.foot-socials a{
+  width:44px; height:44px; border:1px solid var(--d-hairline); border-radius:50%;
+  display:grid; place-items:center; color:var(--d-text);
+  transition:background .35s var(--ease), border-color .35s var(--ease), color .35s var(--ease), transform .35s var(--ease);
+}
+.foot-socials a:hover{ background:var(--gold); border-color:var(--gold); color:#152420; transform:translateY(-2px); }
+.foot-socials svg{ width:18px; height:18px; }
+.foot-backtop{
+  display:inline-flex; align-items:center; gap:11px; margin-top:28px;
+  padding:13px 22px; border:1px solid var(--d-hairline); border-radius:999px;
+  font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--d-text);
+  transition:background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease);
+}
+.foot-backtop:hover{ background:var(--d-text); color:#152420; border-color:var(--d-text); }
+.foot-backtop svg{ width:13px; height:13px; }
+.foot-nav{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,3vw,44px); }
+.foot-col h4{ font-size:10.5px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+.foot-col a, .foot-col p{ display:block; padding:8px 0; font-size:14.5px; color:var(--d-muted); transition:color .3s, transform .3s var(--ease); }
+.foot-col a:hover{ color:var(--d-text); transform:translateX(3px); }
+.foot-bar{
+  display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;
+  padding-top:clamp(22px,2.6vw,30px);
+  font-size:10.5px; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--d-faint);
+}
+@media(max-width:860px){
+  .foot-top{ grid-template-columns:1fr; gap:44px; }
+}
+@media(max-width:480px){
+  .foot-nav{ gap:20px; }
+  .foot-bar{ flex-direction:column; align-items:flex-start; gap:8px; }
+}
+
+/* ══════════════════════ RESPONSIVE ══════════════════════════ */
+@media(max-width:1023px){
+  .about-grid{ grid-template-columns:1fr; }
+}
+@media(max-width:860px){
+  .n-links{ display:none; }
+  .menu-btn{ display:inline-flex; }
+
+  /* hero: strip the desktop-only clutter that collides on small screens */
+  .hero{ padding:92px var(--pad-x) 38px; }
+  .hero-bg .cols{ display:none; }         /* vertical guide lines run through text on mobile */
+  .hero-cue{ display:none; }              /* scroll cue overlapped the CTAs */
+  .hero-kicker{ flex-direction:column; align-items:flex-start; gap:7px; padding-bottom:18px; }
+  .hero-kicker .label{ letter-spacing:.14em; font-size:10px; }
+  .hero-kicker .k-right{ color:var(--faint); }
+  .hero h1{ margin:22px 0 20px; }
+  .hero h1 .ln.ln-2{ padding-left:9vw; }
+  .hero-base{ grid-template-columns:1fr; gap:22px; padding:18px 0 0; }
+  .hero-role{ font-size:clamp(18px,4.6vw,22px); max-width:none; }
+  .hero-right{ justify-self:start; max-width:none; }
+  .hero-right p{ font-size:14.5px; }
+  .hero-ctas{ gap:16px 24px; margin-top:22px; }
+
+  .work-row{ display:flex; flex-direction:column; gap:clamp(60px,10vw,90px); }
+  .work-row .work:nth-child(even){ margin-top:0; }
+  .work .w-media::before, .work--feature .w-media::before,
+  .work-row .work:nth-child(even) .w-media::before{ padding-top:66%; }
+  .work .w-info{ grid-template-columns:auto 1fr auto; }
+
+  .role-row{ grid-template-columns:1fr; gap:6px; }
+  .role-row .r-date{ padding-top:0; }
+  .role-row .r-desc{ padding-top:2px; }
+  .role-row:hover{ padding-left:0; }
+
+  .med-row{ grid-template-columns:1fr; }
+  .med-row .m-meta{ text-align:left; white-space:normal; }
+  .med-row:hover{ padding-left:0; }
+
+  .stats{ grid-template-columns:1fr 1fr; }
+  .stat{ padding-bottom:26px; }
+  .stat:nth-child(3){ border-left:none; padding-left:0; }
+  .stat:nth-child(n+3){ border-top:1px solid var(--hairline); }
+
+  .contact .c-grid{ grid-template-columns:1fr; }
+  .contact .c-social{ justify-self:start; }
+}
+@media(max-width:480px){
+  .hero h1{ font-size:clamp(64px, 19vw, 96px); }
+  .work .w-info{ grid-template-columns:auto 1fr; }
+  .work .w-arrow{ display:none; }
+}
+
+/* ══════════════════════ REDUCED MOTION ══════════════════════ */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ animation:none !important; transition-duration:.001ms !important; }
+  #loader{ display:none !important; }
+  .work .w-veil{ display:none; }
+  .hero-cue .bar::after{ display:none; }
+}
 </style>
 </head>
 <body>
 
 <a href="#work" class="skip">Skip to content</a>
 
-<!-- ============================ PRELOADER ============================ -->
+<!-- ═════════════ PRELOADER ═════════════ -->
 <div id="loader" aria-hidden="true">
-  <div class="lname">ZIMRAN ARIF</div>
-  <div class="lbar"><span></span></div>
-  <div class="lpct mono">000</div>
-</div>
-
-<div id="progress"></div>
-
-<!-- ============================ NAV ============================ -->
-<nav id="nav">
-  <a href="#top" class="logo" aria-label="Zimran Arif — home"><span class="dot"></span> ZIMRAN ARIF</a>
-  <div class="links">
-    <a href="#work">Work</a>
-    <a href="#leadership">Leadership</a>
-    <a href="#medicine">Medicine</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#work"><span class="n mono">01</span>Work</a>
-  <a href="#leadership"><span class="n mono">02</span>Leadership</a>
-  <a href="#medicine"><span class="n mono">03</span>Medicine</a>
-  <a href="#about"><span class="n mono">04</span>About</a>
-  <a href="#contact"><span class="n mono">05</span>Contact</a>
-</div>
-
-<!-- ============================ HERO ============================ -->
-<header class="hero" id="top">
-  <div class="aura" data-parallax="0.15"></div>
-  <div class="inner">
-    <div class="frame-label mono">
-      <span>MBBS · UCMD — PORTFOLIO 2026</span>
-      <span class="rec"><i></i> <span id="tc">00:00:00:00</span></span>
-    </div>
-    <h1>
-      <span class="ln"><span data-line>MEDICINE.</span></span>
-      <span class="ln"><span data-line>MEDIA.</span></span>
-      <span class="ln"><span data-line class="gold">LEADERSHIP.</span></span>
-    </h1>
-    <p class="sub" data-reveal style="--d:640ms">3rd-year medical student building visual identities and films, leading student organizations, and researching at the intersection of medicine and technology. Based in Lahore, Pakistan.</p>
-    <div class="cta-row" data-reveal style="--d:760ms">
-      <a class="btn" href="#work">
-        View the reel
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a class="btn ghost" href="#contact">Get in touch</a>
+  <div class="l-inner">
+    <div class="l-name">Zimran <em>Arif</em></div>
+    <div class="l-meta">
+      <span>Portfolio</span>
+      <span class="l-rule"><i></i></span>
+      <span class="l-count">0</span>
     </div>
   </div>
-  <div class="scroll-cue mono"><div class="bar"></div> SCROLL</div>
+</div>
+
+<div id="cursor" aria-hidden="true"></div>
+<div id="progress" aria-hidden="true"></div>
+
+<!-- ═════════════ NAV ═════════════ -->
+<header id="nav">
+  <div class="n-inner">
+    <a href="#top" class="n-logo" aria-label="Zimran Arif — home">Zimran&nbsp;<em>Arif</em><span class="dot">.</span></a>
+    <nav class="n-links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#medicine">Medicine</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu">
+      Menu
+      <span class="mb-ico"><span></span><span></span></span>
+    </button>
+  </div>
 </header>
 
-<!-- ============================ MARQUEE ============================ -->
-<div class="marquee" aria-hidden="true">
-  <div class="track">
-    <span class="item">DIRECTION</span><span class="item">BRAND FILM</span><span class="item">WEB DESIGN</span><span class="item">RESEARCH</span><span class="item">LEADERSHIP</span><span class="item">CINEMATOGRAPHY</span>
-    <span class="item">DIRECTION</span><span class="item">BRAND FILM</span><span class="item">WEB DESIGN</span><span class="item">RESEARCH</span><span class="item">LEADERSHIP</span><span class="item">CINEMATOGRAPHY</span>
+<!-- mobile menu -->
+<div id="mmenu" aria-hidden="true">
+  <a class="mm-link" href="#work"><span class="n">01</span>Work</a>
+  <a class="mm-link" href="#leadership"><span class="n">02</span>Leadership</a>
+  <a class="mm-link" href="#medicine"><span class="n">03</span>Medicine</a>
+  <a class="mm-link" href="#about"><span class="n">04</span>About</a>
+  <a class="mm-link" href="#contact"><span class="n">05</span>Contact</a>
+  <div class="mm-foot">
+    <a href="mailto:zimran862@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/zimran-arif-581b333b6/" target="_blank" rel="noopener">LinkedIn</a>
+    <span>Lahore, PK</span>
   </div>
 </div>
 
-<!-- ============================ WORK ============================ -->
-<section id="work">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow mono" data-n="01" data-reveal>Selected Work</div>
-      <h2 class="section-title" data-reveal style="--d:80ms">The Reel</h2>
-      <p class="lead" data-reveal style="--d:160ms">Films, brand identities and student-led builds — made for real deadlines, not templates.</p>
-    </div>
+<main id="top">
 
-    <div class="reel">
-      <a class="frame" href="https://www.instagram.com/reel/DY7R0rKInRX/" target="_blank" rel="noopener" data-reveal aria-label="Eid-ul-Azha Appreciation Reel — watch on Instagram">
-        <div class="thumb">
-          <div class="plate"><span class="big-n mono">01</span></div>
-          <img class="thumb-img" loading="lazy" alt="Eid-ul-Azha appreciation reel cover" src="assets/work-1.png">
-        </div>
-        <div class="scrim"></div>
-        <div class="tc mono">00:00:04:12</div>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="info">
-          <div class="cat">Reel · Direction &amp; Edit</div>
-          <h3>Eid-ul-Azha Appreciation Reel</h3>
-          <p>Cinematic appreciation reel for A Dermis — watch on Instagram.</p>
-        </div>
-      </a>
-
-      <a class="frame" href="https://www.instagram.com/reel/DOLyVW2iNZA/" target="_blank" rel="noopener" data-reveal style="--d:80ms" aria-label="Debating Club Introduction Video — watch on Instagram">
-        <div class="thumb">
-          <div class="plate"><span class="big-n mono">02</span></div>
-          <img class="thumb-img" loading="lazy" alt="UCMD Debating Club introduction video cover" src="assets/work-2.png">
-        </div>
-        <div class="scrim"></div>
-        <div class="tc mono">00:00:11:07</div>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="info">
-          <div class="cat">Reel · Direction &amp; Edit</div>
-          <h3>Debating Club — Introduction</h3>
-          <p>Intro film for the UCMD Debating Club — watch on Instagram.</p>
-        </div>
-      </a>
-
-      <a class="frame" href="https://www.instagram.com/reel/DVeBCQWD0oJ/" target="_blank" rel="noopener" data-reveal style="--d:160ms" aria-label="Debating Club Induction Video — watch on Instagram">
-        <div class="thumb">
-          <div class="plate"><span class="big-n mono">03</span></div>
-          <img class="thumb-img" loading="lazy" alt="UCMD Debating Club induction video cover" src="assets/work-3.png">
-        </div>
-        <div class="scrim"></div>
-        <div class="tc mono">00:00:19:22</div>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="info">
-          <div class="cat">Reel · Direction &amp; Edit</div>
-          <h3>Debating Club — Induction</h3>
-          <p>Induction film for the UCMD Debating Club — watch on Instagram.</p>
-        </div>
-      </a>
-
-      <a class="frame" href="https://www.instagram.com/cardig.ucmd" target="_blank" rel="noopener" data-reveal style="--d:80ms" aria-label="CARDIG UCMD Instagram page">
-        <div class="thumb">
-          <div class="plate"><span class="big-n mono">04</span></div>
-          <img class="thumb-img" loading="lazy" alt="CARDIG UCMD Instagram page" src="assets/work-4.png">
-        </div>
-        <div class="scrim"></div>
-        <div class="tc mono">00:00:27:03</div>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="info">
-          <div class="cat">Brand &amp; Content</div>
-          <h3>CARDIG UCMD — Instagram</h3>
-          <p>Full creative direction &amp; content for the Cardiology Interest Group.</p>
-        </div>
-      </a>
-
-      <a class="frame" href="https://cardig.net" target="_blank" rel="noopener" data-reveal style="--d:160ms" aria-label="CARDIG.net website">
-        <div class="thumb">
-          <div class="plate"><span class="big-n mono">05</span></div>
-          <img class="thumb-img" loading="lazy" alt="Screenshot of the CARDIG.net website" src="assets/work-5.jpg">
-        </div>
-        <div class="scrim"></div>
-        <div class="tc mono">00:00:34:15</div>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="info">
-          <div class="cat">Web Design</div>
-          <h3>CARDIG.net</h3>
-          <p>Website designed &amp; built for the Cardiology Interest Group, UCMD.</p>
-        </div>
-      </a>
-    </div>
+<!-- ═════════════ HERO ═════════════ -->
+<section class="hero" aria-label="Introduction">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="cols"><i></i><i></i><i></i></div>
+    <div class="glow" data-glow></div>
   </div>
-</section>
 
-<!-- ============================ LEADERSHIP ============================ -->
-<section id="leadership">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow mono" data-n="02" data-reveal>Experience</div>
-      <h2 class="section-title" data-reveal style="--d:80ms">Leadership &amp; Involvement</h2>
+  <div class="hero-inner">
+    <div class="hero-kicker" data-hero-fade>
+      <span class="label">( Portfolio — MMXXVI )</span>
+      <span class="label k-right">Lahore, Pakistan</span>
     </div>
 
-    <div class="timeline">
-      <div class="time-row" data-reveal>
-        <div class="date mono">05.2025 — 26</div>
-        <div>
-          <div class="role">Punjab Councillor</div>
-          <div class="org">Pakistan Physiological Society Student Chapter</div>
-          <div class="desc">Managing multiple institutions, including STEM degrees, across Punjab — connecting students to practical experience and opportunities.</div>
-        </div>
-      </div>
-      <div class="time-row" data-reveal>
-        <div class="date mono">05.2025 — 26</div>
-        <div>
-          <div class="role">Information Secretary</div>
-          <div class="org">RAVISH NGO</div>
-          <div class="desc">Coordinating communication between the president and team; supporting multiple free medical camps and related events.</div>
-        </div>
-      </div>
-      <div class="time-row" data-reveal>
-        <div class="date mono">07.2025 — 26</div>
-        <div>
-          <div class="role">Director HR (Human Resources)</div>
-          <div class="org">Isaar Local Cabinet (NGO)</div>
-          <div class="desc">Managed event logistics and venue coordination, mediated collaborations with external partners, and streamlined cabinet operations through delegation.</div>
-        </div>
-      </div>
-      <div class="time-row" data-reveal>
-        <div class="date mono">08.2025 — PRESENT</div>
-        <div>
-          <div class="role">Director, Core Cabinet — CardioTech</div>
-          <div class="org">CARDIG UCMD</div>
-          <div class="desc">Developed and manage the group's website, and initiated plans for webinars on technology integration and AI applications in cardiology and future medicine.</div>
-        </div>
-      </div>
-      <div class="time-row" data-reveal>
-        <div class="date mono">08.2025 — PRESENT</div>
-        <div>
-          <div class="role">Assistant to the President</div>
-          <div class="org">IFMSA UCMD Local Cabinet</div>
-          <div class="desc">Assisting the President in coordinating LC operations, managing communications, and supporting event planning and execution.</div>
-        </div>
-      </div>
-      <div class="time-row" data-reveal>
-        <div class="date mono">05.2025 — 26</div>
-        <div>
-          <div class="role">Executive Member — Media Team</div>
-          <div class="org">Debating Club, UCMD</div>
-          <div class="desc">Managing digital content and media coverage for club activities, supporting event promotion and member engagement.</div>
+    <h1>
+      <span class="ln"><span data-hero-line>Zimran</span></span>
+      <span class="ln ln-2"><span data-hero-line><em>Arif</em><span class="fullstop">.</span></span></span>
+    </h1>
+
+    <div class="hero-base">
+      <p class="hero-role" data-hero-fade>
+        <strong>Medicine, media &amp; leadership</strong> — a portfolio of films, identities and initiatives, <em>made under real deadlines.</em>
+      </p>
+      <div class="hero-right" data-hero-fade>
+        <p>3rd-year MBBS student at UCMD — directing brand films, designing visual identities, leading student organisations, and researching where medicine meets technology.</p>
+        <div class="hero-ctas">
+          <a class="lnk lnk--bronze down" href="#work">View selected work
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="lnk" href="#contact">Get in touch
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="hero-cue" aria-hidden="true"><span>Scroll</span><div class="bar"></div></div>
 </section>
 
-<!-- ============================ MEDICINE ============================ -->
-<section id="medicine">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow mono" data-n="03" data-reveal>Clinical &amp; Academic</div>
-      <h2 class="section-title" data-reveal style="--d:80ms">Medicine &amp; Research</h2>
+<!-- ═════════════ MARQUEE ═════════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <div class="set">
+      <span>Direction</span><i>✳</i><span>Brand Film</span><i>✳</i><span>Web Design</span><i>✳</i><span>Research</span><i>✳</i><span>Leadership</span><i>✳</i><span>Cinematography</span><i>✳</i>
     </div>
-
-    <h3 class="sub-title" data-reveal>Clinical Experience</h3>
-    <div class="pub-list">
-      <div class="pub-row" data-reveal>
-        <div class="ptitle">Clinical Training — Emergency Department</div>
-        <div class="pmeta">Hayatabad Medical Complex, Peshawar · 2 Weeks</div>
-        <div class="pdesc">Hands-on training in administering injections, establishing IV lines, and performing cannulation under supervision in a fast-paced, high-pressure clinical environment.</div>
-      </div>
-      <div class="pub-row" data-reveal>
-        <div class="ptitle">Clinical Shadowing — Orthopedic Surgery</div>
-        <div class="pmeta">Life Care Hospital, Hayatabad · 1 Month</div>
-        <div class="pdesc">Shadowed Dr. Mohammad Arif, an orthopedic surgeon, gaining firsthand exposure to consultations, surgical procedures, and patient care.</div>
-      </div>
+    <div class="set">
+      <span>Direction</span><i>✳</i><span>Brand Film</span><i>✳</i><span>Web Design</span><i>✳</i><span>Research</span><i>✳</i><span>Leadership</span><i>✳</i><span>Cinematography</span><i>✳</i>
     </div>
+  </div>
+</div>
 
-    <h3 class="sub-title" data-reveal>Research &amp; Publications</h3>
-    <div class="pub-list">
-      <div class="pub-row" data-reveal>
-        <div class="ptitle">Trends in the Use of Generative AI for Emotional Support Among Undergraduate Medical Students in Pakistan</div>
-        <div class="pmeta">Ongoing</div>
-      </div>
-      <div class="pub-row" data-reveal>
-        <div class="ptitle">Molecular Determinants of Metastatic Melanoma and Repurposed Drugs: A Pathway to Novel Therapeutic Strategies</div>
-        <div class="pmeta">Presenting Author</div>
-      </div>
-    </div>
-
-    <h3 class="sub-title" data-reveal>Talks &amp; Webinars</h3>
-    <div class="pub-list">
-      <div class="pub-row" data-reveal>
-        <div class="ptitle">Student Engagement in Curriculum</div>
-        <div class="pmeta">Host &amp; Speaker · PHYSICON Pre-Conference Workshop, with Dr. Samina Malik &amp; Dr. Piyusha Milani Attapatu</div>
-      </div>
-      <div class="pub-row" data-reveal>
-        <div class="ptitle">AMC Test Free Webinar</div>
-        <div class="pmeta">Host · PPS-SC, featuring Dr. Faizan Zafar &amp; Dr. Michellie Anne Gregorio</div>
-      </div>
-      <div class="pub-row" data-reveal>
-        <div class="ptitle">How to Write a Winning USMLE Personal Statement</div>
-        <div class="pmeta">Lead Organizer &amp; Moderator · PPS-SC, with Dr. Faizan Zafar &amp; Dr. Basel Abdelazeem</div>
-      </div>
-      <div class="pub-row" data-reveal>
-        <div class="ptitle">USMLE Personal Statement Webinar</div>
-        <div class="pmeta">Conceptualizer &amp; Moderator · with Dr. Tooba Fida (Mount Sinai Valley Health)</div>
-      </div>
-      <div class="pub-row" data-reveal>
-        <div class="ptitle">1st PPS Research Committee Webinar 2025</div>
-        <div class="pmeta">Organizer · with Prof. Arif Malik, Prof. Samina Malik &amp; Prof. Rehana Rehman</div>
-      </div>
-    </div>
-
-    <h3 class="sub-title" data-reveal>Community &amp; Events</h3>
-    <div class="tags mono" data-reveal>
-      <div class="tag">Ramadan Donation Drive — HSE-UCMD</div>
-      <div class="tag">ICHPE Conference — Task Force</div>
-      <div class="tag">Zaviya Debating Event — Task Force</div>
-      <div class="tag">SAAP Conference 2024 — Task Force</div>
-      <div class="tag">Orphanage Drive — Isaar LC</div>
-      <div class="tag">Medical Camp — Ravish x VFAHT, Sheikhupura</div>
-      <div class="tag">Medical Camp — Ravish x VFAHT, Thokar Niaz Baig</div>
-      <div class="tag">World Heart Day — CARDIG, AV Lead</div>
-      <div class="tag">Medical Camp — Ravish x CARDIG, Androon Lahore</div>
+<!-- ═════════════ MANIFESTO ═════════════ -->
+<section class="manifesto" aria-label="Statement">
+  <div class="m-inner">
+    <p class="big" data-words>
+      I'm training to be a doctor and building like a studio — directing films, shaping identities and leading teams where <em>precision</em> meets <em>story</em>, and everything is made to outlast the brief it was made for.
+    </p>
+    <div class="m-foot" data-reveal>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="label">Zimran Arif — MBBS, UCMD</span>
     </div>
   </div>
 </section>
 
-<!-- ============================ ABOUT ============================ -->
-<section id="about">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow mono" data-n="04" data-reveal>About</div>
-      <h2 class="section-title" data-reveal style="--d:80ms">Behind the Lens</h2>
+<!-- ═════════════ 01 · WORK ═════════════ -->
+<section class="chapter" id="work" aria-label="Selected work">
+  <div class="ch-head">
+    <div class="ch-index" data-reveal>
+      <span class="num">( 01 )</span>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="label">Selected Work</span>
     </div>
+    <h2 class="ch-title">
+      <span class="ln"><span data-title-line>The <em>Reel</em></span></span>
+    </h2>
+    <p class="ch-lead" data-reveal>Films, brand identities and student-led builds — made for real audiences and real deadlines, not templates.</p>
+  </div>
+
+  <div class="ch-body works">
+
+    <!-- feature -->
+    <a class="work work--feature" href="https://www.instagram.com/reel/DY7R0rKInRX/" target="_blank" rel="noopener" aria-label="Eid-ul-Azha Appreciation Reel — watch on Instagram">
+      <div class="w-media">
+        <div class="w-frame">
+          <div class="w-plate" aria-hidden="true"><span>№ 01</span></div>
+          <img loading="lazy" decoding="async" data-parallax-img alt="Eid-ul-Azha appreciation reel cover" src="assets/work-1.jpg">
+        </div>
+        <div class="w-veil" data-veil aria-hidden="true"></div>
+        <span class="w-tag">Watch on Instagram</span>
+      </div>
+      <div class="w-info">
+        <span class="w-num">( 01 )</span>
+        <h3 class="w-title">Eid-ul-Azha Appreciation <em class="serif-i">Reel</em></h3>
+        <span class="w-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <div class="w-meta"><span>Reel</span><span class="sep" aria-hidden="true"></span><span>Direction &amp; Edit</span></div>
+        <p class="w-desc">A cinematic appreciation reel directed and edited for A Dermis.</p>
+      </div>
+    </a>
+
+    <!-- rows -->
+    <div class="work-row">
+      <a class="work" href="https://www.instagram.com/reel/DOLyVW2iNZA/" target="_blank" rel="noopener" aria-label="Debating Club Introduction video — watch on Instagram">
+        <div class="w-media">
+          <div class="w-frame">
+            <div class="w-plate" aria-hidden="true"><span>№ 02</span></div>
+            <img loading="lazy" decoding="async" data-parallax-img alt="UCMD Debating Club introduction video cover" src="assets/work-2.jpg">
+          </div>
+          <div class="w-veil" data-veil aria-hidden="true"></div>
+          <span class="w-tag">Watch on Instagram</span>
+        </div>
+        <div class="w-info">
+          <span class="w-num">( 02 )</span>
+          <h3 class="w-title">Debating Club — <em class="serif-i">Introduction</em></h3>
+          <span class="w-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div class="w-meta"><span>Reel</span><span class="sep" aria-hidden="true"></span><span>Direction &amp; Edit</span></div>
+          <p class="w-desc">Introduction film for the UCMD Debating Club.</p>
+        </div>
+      </a>
+
+      <a class="work" href="https://www.instagram.com/reel/DVeBCQWD0oJ/" target="_blank" rel="noopener" aria-label="Debating Club Induction video — watch on Instagram">
+        <div class="w-media">
+          <div class="w-frame">
+            <div class="w-plate" aria-hidden="true"><span>№ 03</span></div>
+            <img loading="lazy" decoding="async" data-parallax-img alt="UCMD Debating Club induction video cover" src="assets/work-3.jpg">
+          </div>
+          <div class="w-veil" data-veil aria-hidden="true"></div>
+          <span class="w-tag">Watch on Instagram</span>
+        </div>
+        <div class="w-info">
+          <span class="w-num">( 03 )</span>
+          <h3 class="w-title">Debating Club — <em class="serif-i">Induction</em></h3>
+          <span class="w-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div class="w-meta"><span>Reel</span><span class="sep" aria-hidden="true"></span><span>Direction &amp; Edit</span></div>
+          <p class="w-desc">Induction film for the UCMD Debating Club.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="work-row">
+      <a class="work" href="https://www.instagram.com/cardig.ucmd" target="_blank" rel="noopener" aria-label="CARDIG UCMD Instagram — view page">
+        <div class="w-media">
+          <div class="w-frame">
+            <div class="w-plate" aria-hidden="true"><span>№ 04</span></div>
+            <img loading="lazy" decoding="async" data-parallax-img alt="CARDIG UCMD Instagram page" src="assets/work-4.jpg">
+          </div>
+          <div class="w-veil" data-veil aria-hidden="true"></div>
+          <span class="w-tag">View on Instagram</span>
+        </div>
+        <div class="w-info">
+          <span class="w-num">( 04 )</span>
+          <h3 class="w-title">CARDIG — <em class="serif-i">Identity &amp; Content</em></h3>
+          <span class="w-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div class="w-meta"><span>Brand</span><span class="sep" aria-hidden="true"></span><span>Creative Direction</span></div>
+          <p class="w-desc">Full creative direction and content for the Cardiology Interest Group, UCMD.</p>
+        </div>
+      </a>
+
+      <a class="work" href="https://cardig.net" target="_blank" rel="noopener" aria-label="CARDIG.net — visit website">
+        <div class="w-media">
+          <div class="w-frame">
+            <div class="w-plate" aria-hidden="true"><span>№ 05</span></div>
+            <img loading="lazy" decoding="async" data-parallax-img alt="Screenshot of the CARDIG.net website" src="assets/work-5.jpg">
+          </div>
+          <div class="w-veil" data-veil aria-hidden="true"></div>
+          <span class="w-tag">Visit cardig.net</span>
+        </div>
+        <div class="w-info">
+          <span class="w-num">( 05 )</span>
+          <h3 class="w-title">CARDIG<em class="serif-i">.net</em></h3>
+          <span class="w-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div class="w-meta"><span>Web</span><span class="sep" aria-hidden="true"></span><span>Design &amp; Build</span></div>
+          <p class="w-desc">Website designed and built for the Cardiology Interest Group, UCMD.</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═════════════ 02 · LEADERSHIP ═════════════ -->
+<section class="chapter chapter--tint" id="leadership" aria-label="Leadership and involvement">
+  <div class="ch-head">
+    <div class="ch-index" data-reveal>
+      <span class="num">( 02 )</span>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="label">Experience</span>
+    </div>
+    <h2 class="ch-title">
+      <span class="ln"><span data-title-line>Leadership &amp;</span></span>
+      <span class="ln"><span data-title-line><em>Involvement</em></span></span>
+    </h2>
+  </div>
+
+  <div class="ch-body">
+    <div class="roles">
+      <div class="role-row" data-reveal>
+        <div class="r-date">05.2025 — 26</div>
+        <div>
+          <div class="r-role">Punjab Councillor</div>
+          <div class="r-org">Pakistan Physiological Society — Student Chapter</div>
+        </div>
+        <p class="r-desc">Managing multiple institutions, including STEM degrees, across Punjab — connecting students to practical experience and opportunities.</p>
+      </div>
+      <div class="role-row" data-reveal>
+        <div class="r-date">05.2025 — 26</div>
+        <div>
+          <div class="r-role">Information Secretary</div>
+          <div class="r-org">RAVISH NGO</div>
+        </div>
+        <p class="r-desc">Coordinating communication between the president and team; supporting multiple free medical camps and related events.</p>
+      </div>
+      <div class="role-row" data-reveal>
+        <div class="r-date">07.2025 — 26</div>
+        <div>
+          <div class="r-role">Director HR</div>
+          <div class="r-org">Isaar Local Cabinet (NGO)</div>
+        </div>
+        <p class="r-desc">Managed event logistics and venue coordination, mediated collaborations with external partners, and streamlined cabinet operations through delegation.</p>
+      </div>
+      <div class="role-row" data-reveal>
+        <div class="r-date">08.2025 — Present</div>
+        <div>
+          <div class="r-role">Director, Core Cabinet — CardioTech</div>
+          <div class="r-org">CARDIG UCMD</div>
+        </div>
+        <p class="r-desc">Developed and manage the group's website, and initiated plans for webinars on technology integration and AI applications in cardiology and future medicine.</p>
+      </div>
+      <div class="role-row" data-reveal>
+        <div class="r-date">08.2025 — Present</div>
+        <div>
+          <div class="r-role">Assistant to the President</div>
+          <div class="r-org">IFMSA UCMD Local Cabinet</div>
+        </div>
+        <p class="r-desc">Assisting the President in coordinating LC operations, managing communications, and supporting event planning and execution.</p>
+      </div>
+      <div class="role-row" data-reveal>
+        <div class="r-date">05.2025 — 26</div>
+        <div>
+          <div class="r-role">Executive Member — Media Team</div>
+          <div class="r-org">Debating Club, UCMD</div>
+        </div>
+        <p class="r-desc">Managing digital content and media coverage for club activities, supporting event promotion and member engagement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ 03 · MEDICINE (dark) ═════════════ -->
+<section class="chapter chapter--dark" id="medicine" aria-label="Medicine and research">
+  <div class="ch-head">
+    <div class="ch-index" data-reveal>
+      <span class="num">( 03 )</span>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="label">Clinical &amp; Academic</span>
+    </div>
+    <h2 class="ch-title">
+      <span class="ln"><span data-title-line>Medicine &amp;</span></span>
+      <span class="ln"><span data-title-line><em>Research</em></span></span>
+    </h2>
+    <p class="ch-lead" data-reveal>Clinical training, ongoing research and a run of hosted webinars — the academic spine of the portfolio.</p>
+  </div>
+
+  <div class="ch-body">
+
+    <div class="med-block" data-reveal>
+      <div class="med-sub">
+        <h3>Clinical Experience</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <span class="count">02</span>
+      </div>
+      <div class="med-list">
+        <div class="med-row">
+          <div class="m-title">Clinical Training — Emergency Department</div>
+          <div class="m-meta">Hayatabad Medical Complex · 2 Weeks</div>
+          <p class="m-desc">Hands-on training in administering injections, establishing IV lines, and performing cannulation under supervision in a fast-paced, high-pressure clinical environment.</p>
+        </div>
+        <div class="med-row">
+          <div class="m-title">Clinical Shadowing — Orthopedic Surgery</div>
+          <div class="m-meta">Life Care Hospital · 1 Month</div>
+          <p class="m-desc">Shadowed Dr. Mohammad Arif, an orthopedic surgeon, gaining firsthand exposure to consultations, surgical procedures, and patient care.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="med-block" data-reveal>
+      <div class="med-sub">
+        <h3>Research &amp; Publications</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <span class="count">02</span>
+      </div>
+      <div class="med-list">
+        <div class="med-row">
+          <div class="m-title">Trends in the Use of Generative AI for Emotional Support Among Undergraduate Medical Students in Pakistan</div>
+          <div class="m-meta">Ongoing</div>
+        </div>
+        <div class="med-row">
+          <div class="m-title">Molecular Determinants of Metastatic Melanoma and Repurposed Drugs: A Pathway to Novel Therapeutic Strategies</div>
+          <div class="m-meta">Presenting Author</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="med-block" data-reveal>
+      <div class="med-sub">
+        <h3>Talks &amp; Webinars</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <span class="count">05</span>
+      </div>
+      <div class="med-list">
+        <div class="med-row">
+          <div class="m-title">Student Engagement in Curriculum</div>
+          <div class="m-meta">Host &amp; Speaker</div>
+          <p class="m-desc">PHYSICON Pre-Conference Workshop, with Dr. Samina Malik &amp; Dr. Piyusha Milani Attapatu.</p>
+        </div>
+        <div class="med-row">
+          <div class="m-title">AMC Test Free Webinar</div>
+          <div class="m-meta">Host</div>
+          <p class="m-desc">PPS-SC, featuring Dr. Faizan Zafar &amp; Dr. Michellie Anne Gregorio.</p>
+        </div>
+        <div class="med-row">
+          <div class="m-title">How to Write a Winning USMLE Personal Statement</div>
+          <div class="m-meta">Lead Organizer &amp; Moderator</div>
+          <p class="m-desc">PPS-SC, with Dr. Faizan Zafar &amp; Dr. Basel Abdelazeem.</p>
+        </div>
+        <div class="med-row">
+          <div class="m-title">USMLE Personal Statement Webinar</div>
+          <div class="m-meta">Conceptualizer &amp; Moderator</div>
+          <p class="m-desc">With Dr. Tooba Fida (Mount Sinai Valley Health).</p>
+        </div>
+        <div class="med-row">
+          <div class="m-title">1st PPS Research Committee Webinar 2025</div>
+          <div class="m-meta">Organizer</div>
+          <p class="m-desc">With Prof. Arif Malik, Prof. Samina Malik &amp; Prof. Rehana Rehman.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="med-block" data-reveal>
+      <div class="med-sub">
+        <h3>Community &amp; Events</h3>
+        <span class="rule" aria-hidden="true"></span>
+        <span class="count">09</span>
+      </div>
+      <div class="med-tags">
+        <span>Ramadan Donation Drive — HSE-UCMD</span>
+        <span>ICHPE Conference — Task Force</span>
+        <span>Zaviya Debating Event — Task Force</span>
+        <span>SAAP Conference 2024 — Task Force</span>
+        <span>Orphanage Drive — Isaar LC</span>
+        <span>Medical Camp — Ravish × VFAHT, Sheikhupura</span>
+        <span>Medical Camp — Ravish × VFAHT, Thokar Niaz Baig</span>
+        <span>World Heart Day — CARDIG, AV Lead</span>
+        <span>Medical Camp — Ravish × CARDIG, Androon Lahore</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═════════════ 04 · ABOUT ═════════════ -->
+<section class="chapter" id="about" aria-label="About Zimran Arif">
+  <div class="ch-head">
+    <div class="ch-index" data-reveal>
+      <span class="num">( 04 )</span>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="label">About</span>
+    </div>
+    <h2 class="ch-title">
+      <span class="ln"><span data-title-line>Behind the <em>Lens</em></span></span>
+    </h2>
+  </div>
+
+  <div class="ch-body">
     <div class="about-grid">
-      <div data-reveal>
-        <p>I'm a <strong>driven, detail-oriented medical student</strong> with a passion for education, content creation, and clinical research — with hands-on experience in academic leadership, public speaking, and peer mentorship.</p>
-        <p>I work at the intersection of <strong>medicine, design, and film</strong> — building visual identities, brand films, and student-led initiatives that hold up under real deadlines, not templates.</p>
-        <p>Proven ability to manage projects, lead student organizations, and communicate effectively across diverse clinical and creative teams.</p>
+      <div class="about-copy" data-reveal>
+        <p class="a-lead">A medical student who treats <em>design, film and leadership</em> as part of the same discipline: careful attention.</p>
+        <p>I'm a <strong>driven, detail-oriented medical student</strong> with a passion for education, content creation and clinical research — with hands-on experience in academic leadership, public speaking and peer mentorship.</p>
+        <p>I work at the intersection of <strong>medicine, design and film</strong> — building visual identities, brand films and student-led initiatives that hold up under real deadlines, not templates.</p>
+        <p>Proven ability to manage projects, lead student organisations, and communicate effectively across diverse clinical and creative teams.</p>
       </div>
-      <div class="specs mono" data-reveal style="--d:120ms">
+      <div class="specs" data-reveal>
         <div class="spec-row"><span class="k">Education</span><span class="v">MBBS, UCMD</span></div>
         <div class="spec-row"><span class="k">Location</span><span class="v">Lahore, Pakistan</span></div>
-        <div class="spec-row"><span class="k">Disciplines</span><span class="v">Medicine, Design, Cinematography</span></div>
-        <div class="spec-row"><span class="k">Skills</span><span class="v">Leadership, Management, Multilingual</span></div>
-        <div class="spec-row"><span class="k">Tools</span><span class="v">Canva, Premiere, HyperFrames</span></div>
+        <div class="spec-row"><span class="k">Disciplines</span><span class="v">Medicine · Design · Film</span></div>
+        <div class="spec-row"><span class="k">Skills</span><span class="v">Leadership · Management · Multilingual</span></div>
+        <div class="spec-row"><span class="k">Tools</span><span class="v">Canva · Premiere · HyperFrames</span></div>
       </div>
     </div>
 
     <div class="stats" data-reveal>
-      <div class="stat"><div class="num" data-count="6" data-suffix="+">0</div><div class="lab">Leadership Roles</div></div>
-      <div class="stat"><div class="num" data-count="5" data-suffix="+">0</div><div class="lab">Talks &amp; Webinars</div></div>
-      <div class="stat"><div class="num" data-count="9" data-suffix="+">0</div><div class="lab">Camps &amp; Events</div></div>
-      <div class="stat"><div class="num" data-count="2">0</div><div class="lab">Research Papers</div></div>
+      <div class="stat"><div class="num"><span data-count="6">0</span><sup>+</sup></div><div class="lab">Leadership Roles</div></div>
+      <div class="stat"><div class="num"><span data-count="5">0</span><sup>+</sup></div><div class="lab">Talks &amp; Webinars</div></div>
+      <div class="stat"><div class="num"><span data-count="9">0</span><sup>+</sup></div><div class="lab">Camps &amp; Events</div></div>
+      <div class="stat"><div class="num"><span data-count="2">0</span></div><div class="lab">Research Papers</div></div>
     </div>
   </div>
 </section>
 
-<!-- ============================ CONTACT ============================ -->
-<section id="contact" class="contact">
-  <div class="wrap">
-    <div class="contact-inner">
-      <h2 data-reveal>LET'S MAKE<br><span class="gold">SOMETHING.</span></h2>
-      <div data-reveal style="--d:120ms">
-        <a class="email-link mono" href="mailto:zimran862@gmail.com">zimran862@gmail.com</a>
-        <div class="phone mono">+92 313-9364792</div>
-        <div class="socials">
-          <a href="https://www.linkedin.com/in/zimran-arif-581b333b6/" target="_blank" rel="noopener">LinkedIn</a>
-          <!-- Paste your URL between the quotes to enable. Empty links stay hidden. -->
-          <a href="" data-social target="_blank" rel="noopener">Behance</a>
-        </div>
+<!-- ═════════════ 05 · CONTACT (dark) ═════════════ -->
+<section class="chapter chapter--dark contact" id="contact" aria-label="Contact">
+  <div class="ch-head" style="margin-bottom:0;">
+    <div class="ch-index" data-reveal>
+      <span class="num">( 05 )</span>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="label">Contact</span>
+    </div>
+    <h2 class="c-title">
+      <span class="ln"><span data-title-line>Let's make</span></span>
+      <span class="ln ln-2"><span data-title-line>something <em>lasting.</em></span></span>
+    </h2>
+
+    <div class="c-grid">
+      <div data-reveal>
+        <a class="c-mail" href="mailto:zimran862@gmail.com">zimran862@gmail.com</a>
+        <div class="c-phone">+92 313 936 4792 — Lahore, Pakistan</div>
+      </div>
+      <div class="c-social" data-reveal>
+        <a href="https://www.linkedin.com/in/zimran-arif-581b333b6/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:zimran862@gmail.com">Email</a>
+        <!-- Paste your URL between the quotes to enable. Empty links stay hidden. -->
+        <a href="" data-social target="_blank" rel="noopener">Behance</a>
       </div>
     </div>
   </div>
 </section>
 
-<footer class="mono">
-  <span>© 2026 ZIMRAN ARIF</span>
-  <span>MEDICINE · MEDIA · LEADERSHIP</span>
-  <a href="#top" class="to-top">BACK TO TOP
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M6 11l6-6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
+</main>
+
+<!-- ═════════════ FLOATING FOOTER ═════════════ -->
+<footer class="site-footer">
+  <div class="foot-card">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="foot-wordmark">Zimran&nbsp;<em>Arif</em><span class="dot">.</span></div>
+        <p class="foot-tag">Portfolio 2026 — films, visual identities and research at the intersection of medicine and technology. Based in Lahore, Pakistan.</p>
+        <div class="foot-socials">
+          <a href="https://www.linkedin.com/in/zimran-arif-581b333b6/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9z"/></svg>
+          </a>
+          <a href="mailto:zimran862@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7.5l8 5.5 8-5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <a href="#top" class="foot-backtop">Back to top
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <nav class="foot-nav" aria-label="Footer">
+        <div class="foot-col">
+          <h4>Navigate</h4>
+          <a href="#work">Work</a>
+          <a href="#leadership">Leadership</a>
+          <a href="#medicine">Medicine</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="foot-col">
+          <h4>Connect</h4>
+          <a href="mailto:zimran862@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/zimran-arif-581b333b6/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="tel:+923139364792">+92 313 936 4792</a>
+        </div>
+      </nav>
+    </div>
+    <div class="foot-bar">
+      <span>© 2026 Zimran Arif</span>
+      <span>Designed &amp; built in Lahore, Pakistan</span>
+    </div>
+  </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script>
 (function(){
   "use strict";
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- Thumbnail load / fallback ---------- */
-  document.querySelectorAll('.thumb-img').forEach(function(img){
-    function fail(){ img.style.display='none'; }        // reveal cinematic placeholder behind
-    if(img.complete){
-      if(img.naturalWidth > 1){ img.classList.add('loaded'); } else { fail(); }
-    }
-    img.addEventListener('load', function(){
-      if(img.naturalWidth > 1){ img.classList.add('loaded'); } else { fail(); }
-    });
-    img.addEventListener('error', fail);
+  var reduce  = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasGsap = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
+  var animate = hasGsap && !reduce;
+  var fine    = window.matchMedia && window.matchMedia('(pointer:fine)').matches;
+  var desktop = window.matchMedia && window.matchMedia('(min-width:861px)').matches;
+
+  if (hasGsap) gsap.registerPlugin(ScrollTrigger);
+
+  /* ───────── image load / graceful fallback to plates ───────── */
+  document.querySelectorAll('.w-media img').forEach(function(img){
+    function ok(){ if(img.naturalWidth > 1){ img.classList.add('loaded'); } else { img.style.display = 'none'; } }
+    if (img.complete) ok();
+    img.addEventListener('load', ok);
+    img.addEventListener('error', function(){ img.style.display = 'none'; });
   });
 
-  /* ---------- Hide empty social links ---------- */
+  /* ───────── hide empty social links ───────── */
   document.querySelectorAll('[data-social]').forEach(function(a){
-    var href = (a.getAttribute('href')||'').trim();
-    if(!href || href === '#') a.hidden = true;
+    var href = (a.getAttribute('href') || '').trim();
+    if (!href || href === '#') a.hidden = true;
   });
 
-  /* ---------- Preloader ---------- */
-  var loader = document.getElementById('loader');
-  if(loader && !reduce){
-    var bar = loader.querySelector('.lbar span'),
-        pct = loader.querySelector('.lpct'), p = 0;
-    var iv = setInterval(function(){
-      p += Math.random()*16 + 6; if(p > 100) p = 100;
-      bar.style.width = p + '%';
-      pct.textContent = ('00' + Math.floor(p)).slice(-3);
-      if(p >= 100){ clearInterval(iv); setTimeout(hideLoader, 260); }
-    }, 120);
-  } else if(loader){ hideLoader(); }
-  function hideLoader(){ if(loader){ loader.classList.add('done'); } document.body.style.overflow=''; }
-  // safety net: never trap the page
-  window.addEventListener('load', function(){ setTimeout(hideLoader, 1600); });
+  /* ───────── smooth scroll (Lenis) ───────── */
+  var lenis = null;
+  if (animate && typeof window.Lenis !== 'undefined'){
+    lenis = new Lenis({ duration: 1.1, easing: function(t){ return Math.min(1, 1.001 - Math.pow(2, -10 * t)); } });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(time){ lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+  function scrollToHash(hash){
+    var el = document.querySelector(hash);
+    if (!el) return;
+    if (lenis){ lenis.scrollTo(el, { offset: -70, duration: 1.2 }); }
+    else { el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var hash = a.getAttribute('href');
+      if (hash.length > 1 && document.querySelector(hash)){
+        e.preventDefault();
+        closeMenu();
+        scrollToHash(hash);
+      }
+    });
+  });
 
-  /* ---------- Scroll: progress + nav condense ---------- */
-  var nav = document.getElementById('nav'), progress = document.getElementById('progress'), ticking = false;
+  /* ───────── nav: condense + dark-section awareness ───────── */
+  var nav = document.getElementById('nav');
+  var progress = document.getElementById('progress');
+  var darkSections = Array.prototype.slice.call(document.querySelectorAll('.chapter--dark'));
+  var ticking = false;
   function onScroll(){
     var st = window.pageYOffset || document.documentElement.scrollTop;
-    var h = document.documentElement.scrollHeight - window.innerHeight;
-    progress.style.width = (h > 0 ? (st / h) * 100 : 0) + '%';
+    var h  = document.documentElement.scrollHeight - window.innerHeight;
+    if (progress) progress.style.transform = 'scaleX(' + (h > 0 ? st / h : 0) + ')';
     nav.classList.toggle('scrolled', st > 40);
+    // nav sits over a dark chapter?
+    var navH = nav.offsetHeight, over = false;
+    for (var i = 0; i < darkSections.length; i++){
+      var r = darkSections[i].getBoundingClientRect();
+      if (r.top < navH && r.bottom > 0){ over = true; break; }
+    }
+    nav.classList.toggle('over-dark', over);
     ticking = false;
   }
-  window.addEventListener('scroll', function(){ if(!ticking){ requestAnimationFrame(onScroll); ticking = true; } }, {passive:true});
+  window.addEventListener('scroll', function(){ if (!ticking){ requestAnimationFrame(onScroll); ticking = true; } }, { passive:true });
   onScroll();
 
-  /* ---------- Reveal on scroll ---------- */
-  var revEls = document.querySelectorAll('[data-reveal]');
-  if('IntersectionObserver' in window && !reduce){
-    var ro = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
-    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
-    revEls.forEach(function(el){ ro.observe(el); });
-  } else {
-    revEls.forEach(function(el){ el.classList.add('in'); });
-  }
-
-  /* ---------- Hero headline reveal ---------- */
-  var lines = document.querySelectorAll('[data-line]');
-  if(!reduce){
-    lines.forEach(function(l, i){
-      l.style.transform = 'translateY(105%)';
-      l.style.transition = 'transform .9s cubic-bezier(.16,1,.3,1)';
-      l.style.transitionDelay = (180 + i*120) + 'ms';
-    });
-    requestAnimationFrame(function(){ requestAnimationFrame(function(){
-      lines.forEach(function(l){ l.style.transform = 'translateY(0)'; });
-    }); });
-  }
-
-  /* ---------- Active nav link ---------- */
-  var navLinks = document.querySelectorAll('nav .links a');
-  var sections = [];
-  navLinks.forEach(function(a){ var s = document.querySelector(a.getAttribute('href')); if(s) sections.push({a:a, s:s}); });
-  if('IntersectionObserver' in window && sections.length){
-    var so = new IntersectionObserver(function(entries){
+  /* ───────── active nav link ───────── */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.n-links a'));
+  var watched = navLinks.map(function(a){ return { a:a, s:document.querySelector(a.getAttribute('href')) }; })
+                        .filter(function(o){ return o.s; });
+  if ('IntersectionObserver' in window && watched.length){
+    var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if(e.isIntersecting){
+        if (e.isIntersecting){
           navLinks.forEach(function(x){ x.classList.remove('active'); });
-          var m = sections.find(function(o){ return o.s === e.target; });
-          if(m) m.a.classList.add('active');
+          var m = watched.find(function(o){ return o.s === e.target; });
+          if (m) m.a.classList.add('active');
         }
       });
-    }, {threshold:0.4, rootMargin:'-20% 0px -40% 0px'});
-    sections.forEach(function(o){ so.observe(o.s); });
+    }, { rootMargin:'-30% 0px -55% 0px' });
+    watched.forEach(function(o){ io.observe(o.s); });
   }
 
-  /* ---------- Mobile menu ---------- */
-  var menuBtn = document.getElementById('menuBtn'), mm = document.getElementById('mobileMenu');
-  function toggleMenu(force){
-    var open = force !== undefined ? force : !document.body.classList.contains('menu-open');
+  /* ───────── mobile menu ───────── */
+  var menuBtn = document.getElementById('menuBtn');
+  var mmenu   = document.getElementById('mmenu');
+  function setMenu(open){
     document.body.classList.toggle('menu-open', open);
     menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mmenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    if (lenis){ open ? lenis.stop() : lenis.start(); }
     document.body.style.overflow = open ? 'hidden' : '';
   }
-  if(menuBtn){ menuBtn.addEventListener('click', function(){ toggleMenu(); }); }
-  if(mm){ mm.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ toggleMenu(false); }); }); }
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') toggleMenu(false); });
+  function closeMenu(){ if (document.body.classList.contains('menu-open')) setMenu(false); }
+  if (menuBtn) menuBtn.addEventListener('click', function(){ setMenu(!document.body.classList.contains('menu-open')); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); });
 
-  /* ---------- Count-up stats ---------- */
+  /* ───────── stat counters (always run; instant if no animation) ───────── */
   var counters = document.querySelectorAll('[data-count]');
-  if('IntersectionObserver' in window && counters.length){
+  function runCounter(el){
+    var target = +el.getAttribute('data-count');
+    if (!animate){ el.textContent = target; return; }
+    var obj = { v: 0 };
+    gsap.to(obj, {
+      v: target, duration: 1.4, ease: 'power3.out',
+      onUpdate: function(){ el.textContent = Math.round(obj.v); }
+    });
+  }
+  if ('IntersectionObserver' in window){
     var co = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if(!e.isIntersecting) return;
-        var el = e.target, target = +el.getAttribute('data-count'), suf = el.getAttribute('data-suffix') || '';
-        if(reduce){ el.textContent = target + suf; co.unobserve(el); return; }
-        var start = null, dur = 1100;
-        (function step(ts){
-          if(!start) start = ts;
-          var pr = Math.min((ts - start) / dur, 1);
-          var eased = 1 - Math.pow(1 - pr, 3);
-          el.textContent = Math.round(eased * target) + (pr === 1 ? suf : '');
-          if(pr < 1) requestAnimationFrame(step);
-        })(performance.now());
-        co.unobserve(el);
+        if (e.isIntersecting){ runCounter(e.target); co.unobserve(e.target); }
       });
-    }, {threshold:0.6});
+    }, { threshold: 0.6 });
     counters.forEach(function(el){ co.observe(el); });
+  } else {
+    counters.forEach(function(el){ el.textContent = el.getAttribute('data-count'); });
   }
 
-  /* ---------- Hero timecode (24fps feel) ---------- */
-  var tc = document.getElementById('tc');
-  if(tc && !reduce){
-    var t0 = Date.now();
-    setInterval(function(){
-      var ms = Date.now() - t0, tot = Math.floor(ms/1000);
-      var hh = Math.floor(tot/3600), mm2 = Math.floor((tot%3600)/60), ss = tot%60;
-      var ff = Math.floor((ms % 1000) / (1000/24));
-      function pad(n){ return ('0'+n).slice(-2); }
-      tc.textContent = pad(hh)+':'+pad(mm2)+':'+pad(ss)+':'+pad(ff);
-    }, 42);
+  /* ═════════ everything below is motion — bail politely without GSAP ═════════ */
+  var loader = document.getElementById('loader');
+  function killLoader(){ if (loader && loader.parentNode) loader.parentNode.removeChild(loader); }
+  if (!animate){ killLoader(); return; }
+
+  /* ───────── preloader → hero entrance ───────── */
+  var heroLines = gsap.utils.toArray('[data-hero-line]');
+  var heroFades = gsap.utils.toArray('[data-hero-fade]');
+  gsap.set(heroLines, { yPercent: 112 });
+  gsap.set(heroFades, { autoAlpha: 0, y: 22 });
+
+  var count = { v: 0 };
+  var countEl = loader ? loader.querySelector('.l-count') : null;
+  var ruleEl  = loader ? loader.querySelector('.l-rule i') : null;
+
+  var intro = gsap.timeline({ defaults: { ease: 'power4.out' } });
+  if (loader){
+    intro
+      .to(count, { v: 100, duration: 1.0, ease: 'power2.inOut',
+        onUpdate: function(){ if (countEl) countEl.textContent = Math.round(count.v); } })
+      .to(ruleEl, { scaleX: 1, duration: 1.0, ease: 'power2.inOut' }, 0)
+      .to(loader, { yPercent: -100, duration: 0.9, ease: 'power4.inOut' }, '+=0.15')
+      .add(killLoader);
+  }
+  intro
+    .to(heroLines, { yPercent: 0, duration: 1.3, stagger: 0.14 }, loader ? '-=0.45' : 0)
+    .to(heroFades, { autoAlpha: 1, y: 0, duration: 1.0, stagger: 0.12 }, '<0.35');
+
+  // safety nets — never trap the page behind the loader, and never leave the
+  // intro half-played if the page loads in a hidden/background tab
+  setTimeout(killLoader, 4500);
+  function finishIntro(){ if (intro.progress() < 1){ intro.progress(1); } killLoader(); }
+  if (document.hidden) finishIntro();
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden && intro.progress() < 1 && intro.time() > 0.1) finishIntro();
+  });
+
+  /* ───────── generic reveals ───────── */
+  gsap.utils.toArray('[data-reveal]').forEach(function(el){
+    gsap.fromTo(el, { autoAlpha: 0, y: 30 }, {
+      autoAlpha: 1, y: 0, duration: 1.1, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 88%' }
+    });
+  });
+
+  /* ───────── chapter title masked line reveals ───────── */
+  gsap.utils.toArray('[data-title-line]').forEach(function(el, i){
+    gsap.fromTo(el, { yPercent: 112 }, {
+      yPercent: 0, duration: 1.2, ease: 'power4.out', delay: (i % 3) * 0.08,
+      scrollTrigger: { trigger: el.closest('.ch-head') || el, start: 'top 85%' }
+    });
+  });
+
+  /* ───────── manifesto: words light up on scrub ───────── */
+  var mani = document.querySelector('[data-words]');
+  if (mani){
+    // split text nodes into word spans, preserving <em> styling
+    (function split(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(child){
+        if (child.nodeType === 3){
+          var frag = document.createDocumentFragment();
+          child.textContent.split(/(\s+)/).forEach(function(part){
+            if (!part) return;
+            if (/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(part)); }
+            else {
+              var s = document.createElement('span');
+              s.className = 'm-word'; s.textContent = part;
+              frag.appendChild(s);
+            }
+          });
+          node.replaceChild(frag, child);
+        } else if (child.nodeType === 1){ split(child); }
+      })
+    })(mani);
+    var words = mani.querySelectorAll('.m-word');
+    gsap.fromTo(words, { opacity: 0.13 }, {
+      opacity: 1, stagger: 0.06, ease: 'none',
+      scrollTrigger: { trigger: mani, start: 'top 78%', end: 'bottom 45%', scrub: 0.6 }
+    });
   }
 
-  /* ---------- Subtle hero parallax (desktop, pointer, motion-ok) ---------- */
-  var aura = document.querySelector('[data-parallax]');
-  if(aura && !reduce && window.matchMedia('(min-width:821px)').matches){
-    var pt = false;
-    window.addEventListener('scroll', function(){
-      if(pt) return; pt = true;
-      requestAnimationFrame(function(){
-        var y = (window.pageYOffset||0) * parseFloat(aura.getAttribute('data-parallax'));
-        aura.style.transform = 'translateY(' + y + 'px)';
-        pt = false;
+  /* ───────── work media: veil sweep + inner parallax ───────── */
+  gsap.utils.toArray('[data-veil]').forEach(function(veil){
+    gsap.to(veil, {
+      scaleY: 0, duration: 1.2, ease: 'power4.inOut',
+      scrollTrigger: { trigger: veil.closest('.w-media'), start: 'top 82%' }
+    });
+  });
+  if (desktop){
+    gsap.utils.toArray('[data-parallax-img]').forEach(function(img){
+      gsap.fromTo(img, { yPercent: -6 }, {
+        yPercent: 6, ease: 'none',
+        scrollTrigger: { trigger: img.closest('.w-media'), start: 'top bottom', end: 'bottom top', scrub: 0.4 }
       });
-    }, {passive:true});
+    });
   }
+  // gentle hover zoom (transform only)
+  document.querySelectorAll('.work').forEach(function(card){
+    var img = card.querySelector('img');
+    if (!img || !fine) return;
+    card.addEventListener('mouseenter', function(){ gsap.to(img, { scale: 1.05, duration: 0.9, ease: 'power3.out' }); });
+    card.addEventListener('mouseleave', function(){ gsap.to(img, { scale: 1, duration: 0.9, ease: 'power3.out' }); });
+  });
+
+  /* ───────── hero glow: drifts with scroll + follows cursor ───────── */
+  var glow = document.querySelector('[data-glow]');
+  if (glow){
+    gsap.to(glow, {
+      yPercent: 26, ease: 'none',
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.5 }
+    });
+    if (fine && desktop){
+      var gx = gsap.quickTo(glow, 'x', { duration: 1.6, ease: 'power3.out' });
+      var gy = gsap.quickTo(glow, 'y', { duration: 1.6, ease: 'power3.out' });
+      window.addEventListener('mousemove', function(e){
+        var dx = (e.clientX / window.innerWidth  - 0.5) * 90;
+        var dy = (e.clientY / window.innerHeight - 0.5) * 70;
+        gx(dx); gy(dy);
+      }, { passive:true });
+    }
+  }
+
+  /* ───────── custom cursor (fine pointers only) ───────── */
+  if (fine && desktop){
+    document.documentElement.classList.add('cursor-on');
+    var cur = document.getElementById('cursor');
+    var cx = gsap.quickTo(cur, 'x', { duration: 0.35, ease: 'power3.out' });
+    var cy = gsap.quickTo(cur, 'y', { duration: 0.35, ease: 'power3.out' });
+    gsap.set(cur, { xPercent: -50, yPercent: -50 });
+    window.addEventListener('mousemove', function(e){ cx(e.clientX); cy(e.clientY); }, { passive:true });
+    document.querySelectorAll('a, button').forEach(function(el){
+      el.addEventListener('mouseenter', function(){ gsap.to(cur, { scale: 3.2, opacity: 0.85, duration: 0.35, ease: 'power3.out' }); });
+      el.addEventListener('mouseleave', function(){ gsap.to(cur, { scale: 1, opacity: 1, duration: 0.35, ease: 'power3.out' }); });
+    });
+  }
+
+  /* ───────── magnetic links (hero CTAs + contact mail) ───────── */
+  if (fine && desktop){
+    document.querySelectorAll('.hero-ctas .lnk, .c-mail').forEach(function(el){
+      var mx = gsap.quickTo(el, 'x', { duration: 0.5, ease: 'power3.out' });
+      var my = gsap.quickTo(el, 'y', { duration: 0.5, ease: 'power3.out' });
+      el.addEventListener('mousemove', function(e){
+        var r = el.getBoundingClientRect();
+        mx((e.clientX - (r.left + r.width / 2)) * 0.25);
+        my((e.clientY - (r.top + r.height / 2)) * 0.35);
+      });
+      el.addEventListener('mouseleave', function(){ mx(0); my(0); });
+    });
+  }
+
 })();
 </script>
 
