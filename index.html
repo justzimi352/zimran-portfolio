@@ -440,6 +440,12 @@ body.menu-open #mmenu .mm-foot{ opacity:1; }
 .work-row + .work-row .work:nth-child(odd){ grid-column:6 / span 7; }
 .work-row + .work-row .work:nth-child(even){ grid-column:1 / span 5; grid-row:1; }
 
+/* vertical reel card — portrait frame so the 9:16 artwork isn't cropped to landscape */
+.work-row--reel{ display:flex; }
+.work--reel{ width:min(440px,100%); margin-left:clamp(0px,8vw,120px); }
+.work.work--reel .w-media::before{ padding-top:125%; }
+@media(max-width:860px){ .work--reel{ width:100%; margin-left:0; } }
+
 /* ══════════════════════ PROJECT INDEX ═══════════════════════ */
 .index{ margin-top:clamp(20px,3vw,40px); }
 .ix-head{ display:flex; align-items:baseline; gap:18px; margin-bottom:6px; }
@@ -964,6 +970,28 @@ body.menu-open #mmenu .mm-foot{ opacity:1; }
       </a>
     </div>
 
+    <div class="work-row work-row--reel">
+      <a class="work work--reel" href="https://www.instagram.com/reel/Ddvkh7Hg8Iw/" target="_blank" rel="noopener" aria-label="CardioQuiz 2026 animated announcement — watch on Instagram">
+        <div class="w-media">
+          <div class="w-frame">
+            <div class="w-plate" aria-hidden="true"><span>№ 06</span></div>
+            <img loading="lazy" decoding="async" data-parallax-img alt="CardioQuiz 2026 reel — pixel-art character Dr. Bones explaining why the quiz moved" src="assets/work-6.jpg">
+          </div>
+          <div class="w-veil" data-veil aria-hidden="true"></div>
+          <span class="w-tag">Watch on Instagram</span>
+        </div>
+        <div class="w-info">
+          <span class="w-num">( 06 )</span>
+          <h3 class="w-title">CardioQuiz 2026 — <em class="serif-i">Animated Reel</em></h3>
+          <span class="w-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div class="w-meta"><span>Reel</span><span class="sep" aria-hidden="true"></span><span>Animation</span></div>
+          <p class="w-desc">Pixel-art announcement reel for CardioQuiz 2026's move to late October — animated in code with Remotion, set in the same world as the quiz's registration site.</p>
+        </div>
+      </a>
+    </div>
+
     <div class="index" data-reveal>
       <div class="ix-head">
         <h3>Also designed <em>&amp; built</em></h3>
@@ -971,49 +999,49 @@ body.menu-open #mmenu .mm-foot{ opacity:1; }
         <a class="ix-gh" href="https://github.com/justzimi352" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
       <a class="ix-row" href="https://pakistanpsychiatricnetwork.netlify.app" target="_blank" rel="noopener">
-        <span class="ix-num">( 06 )</span>
+        <span class="ix-num">( 07 )</span>
         <span class="ix-name">Pakistan Psychiatric Network</span>
         <span class="ix-desc">Platform for the mental-health startup — vision, pillars and national roadmap.</span>
         <span class="ix-stack">Next.js</span>
         <span class="ix-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
       <a class="ix-row" href="https://github.com/justzimi352/cardig-os-platform" target="_blank" rel="noopener">
-        <span class="ix-num">( 07 )</span>
+        <span class="ix-num">( 08 )</span>
         <span class="ix-name">CARDIG OS</span>
         <span class="ix-desc">Internal operations platform — department workspaces, tasks, events, research and budget.</span>
         <span class="ix-stack">Next.js · Supabase</span>
         <span class="ix-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
       <a class="ix-row" href="https://cardig.net/cardioquiz" target="_blank" rel="noopener">
-        <span class="ix-num">( 08 )</span>
+        <span class="ix-num">( 09 )</span>
         <span class="ix-name">CardioQuiz 2026</span>
         <span class="ix-desc">Pixel-art registration world for an inter-college cardiology competition.</span>
         <span class="ix-stack">React · cardig.net</span>
         <span class="ix-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
       <a class="ix-row" href="https://ravishdemo.netlify.app" target="_blank" rel="noopener">
-        <span class="ix-num">( 09 )</span>
+        <span class="ix-num">( 10 )</span>
         <span class="ix-name">Ravish NGO</span>
         <span class="ix-desc">38-page national site — chapter network map, camps, programmes and impact reporting.</span>
         <span class="ix-stack">Astro · Tailwind</span>
         <span class="ix-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
       <a class="ix-row" href="https://drarifortho.netlify.app" target="_blank" rel="noopener">
-        <span class="ix-num">( 10 )</span>
+        <span class="ix-num">( 11 )</span>
         <span class="ix-name">Dr. Arif Ortho</span>
         <span class="ix-desc">Practice site for an orthopaedic and spine surgeon, with WhatsApp booking.</span>
         <span class="ix-stack">HTML · CSS</span>
         <span class="ix-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
       <a class="ix-row" href="https://meridian.zimranarif39.workers.dev" target="_blank" rel="noopener">
-        <span class="ix-num">( 11 )</span>
+        <span class="ix-num">( 12 )</span>
         <span class="ix-name">Meridian</span>
         <span class="ix-desc">Property-inspection service for overseas owners — one self-contained page on the edge.</span>
         <span class="ix-stack">Cloudflare Workers</span>
         <span class="ix-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
       <a class="ix-row" href="https://tazodemo.netlify.app" target="_blank" rel="noopener">
-        <span class="ix-num">( 12 )</span>
+        <span class="ix-num">( 13 )</span>
         <span class="ix-name">TAZO Foods</span>
         <span class="ix-desc">Storefront demo with a modular cart and Google Sheets checkout.</span>
         <span class="ix-stack">JavaScript</span>
