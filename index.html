@@ -440,6 +440,35 @@ body.menu-open #mmenu .mm-foot{ opacity:1; }
 .work-row + .work-row .work:nth-child(odd){ grid-column:6 / span 7; }
 .work-row + .work-row .work:nth-child(even){ grid-column:1 / span 5; grid-row:1; }
 
+/* ══════════════════════ PROJECT INDEX ═══════════════════════ */
+.index{ margin-top:clamp(20px,3vw,40px); }
+.ix-head{ display:flex; align-items:baseline; gap:18px; margin-bottom:6px; }
+.ix-head h3{ font-family:var(--serif); font-weight:500; font-size:clamp(28px,3.4vw,44px); line-height:1; }
+.ix-head h3 em{ font-style:italic; font-weight:400; color:var(--bronze-deep); }
+.ix-head .rule{ flex:1; height:1px; background:var(--hairline); align-self:center; }
+.ix-gh{ font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--bronze-deep); }
+.ix-gh:hover{ color:var(--ink); }
+.ix-row{
+  display:grid; grid-template-columns:64px minmax(180px,1fr) 1.6fr 170px 38px; gap:6px 24px; align-items:baseline;
+  padding:20px 0; border-bottom:1px solid var(--hairline); transition:padding-left .45s var(--ease);
+}
+.ix-row:hover{ padding-left:14px; }
+.ix-num{ font-family:var(--serif); font-style:italic; font-size:15px; color:var(--bronze); }
+.ix-name{ font-family:var(--serif); font-size:clamp(21px,2.2vw,28px); font-weight:500; line-height:1.15; transition:color .3s; }
+.ix-row:hover .ix-name{ color:var(--bronze-deep); }
+.ix-desc{ font-size:14px; line-height:1.6; color:var(--muted); }
+.ix-stack{ font-size:10.5px; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--faint); text-align:right; }
+.ix-arrow{ align-self:center; justify-self:end; width:34px; height:34px; border:1px solid var(--hairline); border-radius:50%; display:grid; place-items:center; transition:background .4s var(--ease), color .4s, transform .4s var(--ease); }
+.ix-arrow svg{ width:13px; height:13px; }
+.ix-row:hover .ix-arrow{ background:var(--ink); color:var(--paper); border-color:var(--ink); transform:rotate(45deg); }
+@media(max-width:860px){
+  .ix-row{ grid-template-columns:48px 1fr; padding:18px 0; }
+  .ix-desc, .ix-stack{ grid-column:2; text-align:left; }
+  .ix-arrow{ display:none; }
+  .ix-row:hover{ padding-left:0; }
+  .ix-head{ flex-wrap:wrap; }
+}
+
 /* ══════════════════════ LEADERSHIP ══════════════════════════ */
 .roles{ border-top:1px solid var(--hairline); }
 .role-row{
@@ -772,7 +801,7 @@ body.menu-open #mmenu .mm-foot{ opacity:1; }
         <strong>Medicine, media &amp; leadership</strong> — a portfolio of films, identities and initiatives, <em>made under real deadlines.</em>
       </p>
       <div class="hero-right" data-hero-fade>
-        <p>2nd-year MBBS student at UCMD — directing brand films, designing visual identities, leading student organisations, and researching where medicine meets technology.</p>
+        <p>2nd-year MBBS student at UCMD — leading student organisations at national level, directing the media that represents them, and building the digital platforms they run on.</p>
         <div class="hero-ctas">
           <a class="lnk lnk--bronze down" href="#work">View selected work
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -910,7 +939,7 @@ body.menu-open #mmenu .mm-foot{ opacity:1; }
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
           <div class="w-meta"><span>Brand</span><span class="sep" aria-hidden="true"></span><span>Creative Direction</span></div>
-          <p class="w-desc">Full creative direction and content for the Cardiology Interest Group, UCMD.</p>
+          <p class="w-desc">Creative direction and content across the society's channels — grown to 760+ on Instagram and 390+ on LinkedIn.</p>
         </div>
       </a>
 
@@ -930,8 +959,65 @@ body.menu-open #mmenu .mm-foot{ opacity:1; }
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
           <div class="w-meta"><span>Web</span><span class="sep" aria-hidden="true"></span><span>Design &amp; Build</span></div>
-          <p class="w-desc">Website designed and built for the Cardiology Interest Group, UCMD.</p>
+          <p class="w-desc">Multi-page platform for the Cardiology Interest Group — membership and newsletter pipelines, public certificate verification, an ambassador programme and CardioQuiz registration.</p>
         </div>
+      </a>
+    </div>
+
+    <div class="index" data-reveal>
+      <div class="ix-head">
+        <h3>Also designed <em>&amp; built</em></h3>
+        <span class="rule" aria-hidden="true"></span>
+        <a class="ix-gh" href="https://github.com/justzimi352" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <a class="ix-row" href="https://pakistanpsychiatricnetwork.netlify.app" target="_blank" rel="noopener">
+        <span class="ix-num">( 06 )</span>
+        <span class="ix-name">Pakistan Psychiatric Network</span>
+        <span class="ix-desc">Platform for the mental-health startup — vision, pillars and national roadmap.</span>
+        <span class="ix-stack">Next.js</span>
+        <span class="ix-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="ix-row" href="https://github.com/justzimi352/cardig-os-platform" target="_blank" rel="noopener">
+        <span class="ix-num">( 07 )</span>
+        <span class="ix-name">CARDIG OS</span>
+        <span class="ix-desc">Internal operations platform — department workspaces, tasks, events, research and budget.</span>
+        <span class="ix-stack">Next.js · Supabase</span>
+        <span class="ix-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="ix-row" href="https://cardig.net/cardioquiz" target="_blank" rel="noopener">
+        <span class="ix-num">( 08 )</span>
+        <span class="ix-name">CardioQuiz 2026</span>
+        <span class="ix-desc">Pixel-art registration world for an inter-college cardiology competition.</span>
+        <span class="ix-stack">React · cardig.net</span>
+        <span class="ix-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="ix-row" href="https://ravishdemo.netlify.app" target="_blank" rel="noopener">
+        <span class="ix-num">( 09 )</span>
+        <span class="ix-name">Ravish NGO</span>
+        <span class="ix-desc">38-page national site — chapter network map, camps, programmes and impact reporting.</span>
+        <span class="ix-stack">Astro · Tailwind</span>
+        <span class="ix-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="ix-row" href="https://drarifortho.netlify.app" target="_blank" rel="noopener">
+        <span class="ix-num">( 10 )</span>
+        <span class="ix-name">Dr. Arif Ortho</span>
+        <span class="ix-desc">Practice site for an orthopaedic and spine surgeon, with WhatsApp booking.</span>
+        <span class="ix-stack">HTML · CSS</span>
+        <span class="ix-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="ix-row" href="https://meridian.zimranarif39.workers.dev" target="_blank" rel="noopener">
+        <span class="ix-num">( 11 )</span>
+        <span class="ix-name">Meridian</span>
+        <span class="ix-desc">Property-inspection service for overseas owners — one self-contained page on the edge.</span>
+        <span class="ix-stack">Cloudflare Workers</span>
+        <span class="ix-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="ix-row" href="https://tazodemo.netlify.app" target="_blank" rel="noopener">
+        <span class="ix-num">( 12 )</span>
+        <span class="ix-name">TAZO Foods</span>
+        <span class="ix-desc">Storefront demo with a modular cart and Google Sheets checkout.</span>
+        <span class="ix-stack">JavaScript</span>
+        <span class="ix-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
     </div>
 
@@ -957,10 +1043,34 @@ body.menu-open #mmenu .mm-foot{ opacity:1; }
       <div class="role-row" data-reveal>
         <div class="r-date">07.2026 — Present</div>
         <div>
+          <div class="r-role">Founder</div>
+          <div class="r-org">Pakistan Psychiatric Network — Mental-health Startup</div>
+        </div>
+        <p class="r-desc">Founded a startup building Pakistan's national mental-health network — connecting students, professionals, researchers and communities through education, research, advocacy and service. Designed and built its platform.</p>
+      </div>
+      <div class="role-row" data-reveal>
+        <div class="r-date">07.2026 — Present</div>
+        <div>
           <div class="r-role">President</div>
           <div class="r-org">Pakistan Physiological Society — Student Chapter</div>
         </div>
-        <p class="r-desc">Leading the Society's national student chapter — directing its councillors and committees and steering research, webinar and outreach programming across the country.</p>
+        <p class="r-desc">Second President of the national student chapter — setting direction across academic initiatives, institutional collaboration, community outreach and student opportunity nationwide, with a cabinet spanning multiple institutions.</p>
+      </div>
+      <div class="role-row" data-reveal>
+        <div class="r-date">08.2026 — Present</div>
+        <div>
+          <div class="r-role">Vice President</div>
+          <div class="r-org">CARDIG, UCMD</div>
+        </div>
+        <p class="r-desc">Second-in-command of the society's executive — working with the President to set direction, coordinate departments and the cabinet, and oversee the academic, clinical-skills and community programme, while continuing to lead its digital platform and creative output.</p>
+      </div>
+      <div class="role-row" data-reveal>
+        <div class="r-date">07.2026 — Present</div>
+        <div>
+          <div class="r-role">Creative Director</div>
+          <div class="r-org">Ravish — National Cabinet</div>
+        </div>
+        <p class="r-desc">Leading creative direction for the national cabinet — brand identity, campaign design and the visual language across Ravish's national communications and outreach drives.</p>
       </div>
       <div class="role-row" data-reveal>
         <div class="r-date">07.2026 — Present</div>
@@ -968,55 +1078,55 @@ body.menu-open #mmenu .mm-foot{ opacity:1; }
           <div class="r-role">Advisory — Executive Cabinet</div>
           <div class="r-org">Debating Club, UCMD</div>
         </div>
-        <p class="r-desc">Partnering with the President to guide strategic initiatives, oversee executive operations, mentor student leaders, and support debating, public-speaking and leadership programming.</p>
+        <p class="r-desc">Advising the executive cabinet on direction, media strategy and event delivery.</p>
       </div>
       <div class="role-row" data-reveal>
-        <div class="r-date">05.2025 — 26</div>
+        <div class="r-date">08.2025 — 08.2026</div>
+        <div>
+          <div class="r-role">Director, Core Cabinet — CardioTech</div>
+          <div class="r-org">CARDIG, UCMD</div>
+        </div>
+        <p class="r-desc">Designed, built and deployed cardig.net with its membership and newsletter pipelines, plus a certificate-verification system the public can authenticate by ID and QR code. Directs brand identity and content across the society's channels.</p>
+      </div>
+      <div class="role-row" data-reveal>
+        <div class="r-date">08.2025 — 09.2026</div>
+        <div>
+          <div class="r-role">Assistant to the President</div>
+          <div class="r-org">IFMSA UCMD Local Cabinet</div>
+        </div>
+        <p class="r-desc">Assisted the President in coordinating LC operations, managing communications, and supporting event planning and execution.</p>
+      </div>
+      <div class="role-row" data-reveal>
+        <div class="r-date">05.2025 — 07.2026</div>
         <div>
           <div class="r-role">Punjab Councillor</div>
           <div class="r-org">Pakistan Physiological Society — Student Chapter</div>
         </div>
-        <p class="r-desc">Managing multiple institutions, including STEM degrees, across Punjab — connecting students to practical experience and opportunities.</p>
+        <p class="r-desc">Managed multiple institutions, including STEM degrees, across Punjab — connecting students to practical experience and academic opportunities.</p>
       </div>
       <div class="role-row" data-reveal>
-        <div class="r-date">05.2025 — 26</div>
+        <div class="r-date">07.2025 — 02.2026</div>
         <div>
-          <div class="r-role">Information Secretary</div>
-          <div class="r-org">RAVISH NGO</div>
-        </div>
-        <p class="r-desc">Coordinating communication between the president and team; supporting multiple free medical camps and related events.</p>
-      </div>
-      <div class="role-row" data-reveal>
-        <div class="r-date">07.2025 — 26</div>
-        <div>
-          <div class="r-role">Director HR</div>
+          <div class="r-role">Human Resources Director</div>
           <div class="r-org">Isaar Local Cabinet (NGO)</div>
         </div>
         <p class="r-desc">Managed event logistics and venue coordination, mediated collaborations with external partners, and streamlined cabinet operations through delegation.</p>
       </div>
       <div class="role-row" data-reveal>
-        <div class="r-date">08.2025 — Present</div>
+        <div class="r-date">05.2025 — 01.2026</div>
         <div>
-          <div class="r-role">Director, Core Cabinet — CardioTech</div>
-          <div class="r-org">CARDIG UCMD</div>
+          <div class="r-role">Information Secretary</div>
+          <div class="r-org">Ravish NGO</div>
         </div>
-        <p class="r-desc">Developed and manage the group's website, and initiated plans for webinars on technology integration and AI applications in cardiology and future medicine.</p>
+        <p class="r-desc">Coordinated communication between the President and team; supported multiple free medical camps and managed corresponding events.</p>
       </div>
       <div class="role-row" data-reveal>
-        <div class="r-date">08.2025 — Present</div>
-        <div>
-          <div class="r-role">Assistant to the President</div>
-          <div class="r-org">IFMSA UCMD Local Cabinet</div>
-        </div>
-        <p class="r-desc">Assisting the President in coordinating LC operations, managing communications, and supporting event planning and execution.</p>
-      </div>
-      <div class="role-row" data-reveal>
-        <div class="r-date">05.2025 — 26</div>
+        <div class="r-date">05.2025 — 01.2026</div>
         <div>
           <div class="r-role">Executive Member — Media Team</div>
           <div class="r-org">Debating Club, UCMD</div>
         </div>
-        <p class="r-desc">Managing digital content and media coverage for club activities, supporting event promotion and member engagement.</p>
+        <p class="r-desc">Managed digital content and media coverage for club activities, supporting event promotion and member engagement.</p>
       </div>
     </div>
   </div>
@@ -1085,7 +1195,7 @@ body.menu-open #mmenu .mm-foot{ opacity:1; }
       <div class="med-sub">
         <h3>Talks &amp; Webinars</h3>
         <span class="rule" aria-hidden="true"></span>
-        <span class="count">05</span>
+        <span class="count">06</span>
       </div>
       <div class="med-list">
         <div class="med-row">
@@ -1113,6 +1223,11 @@ body.menu-open #mmenu .mm-foot{ opacity:1; }
           <div class="m-meta">Organizer</div>
           <p class="m-desc">With Prof. Arif Malik, Prof. Samina Malik &amp; Prof. Rehana Rehman.</p>
         </div>
+        <div class="med-row">
+          <div class="m-title">CARDIG Webinar Programme &amp; Awareness Campaigns</div>
+          <div class="m-meta">Promotion &amp; Digital Delivery</div>
+          <p class="m-desc">World Heart Day Webinar with international faculty and Life in the NHS with a UK guest speaker, plus recurring public-health content — Myth Busters, Stroke Awareness and World Adherence Day.</p>
+        </div>
       </div>
     </div>
 
@@ -1120,18 +1235,27 @@ body.menu-open #mmenu .mm-foot{ opacity:1; }
       <div class="med-sub">
         <h3>Community &amp; Events</h3>
         <span class="rule" aria-hidden="true"></span>
-        <span class="count">09</span>
+        <span class="count">18</span>
       </div>
       <div class="med-tags">
-        <span>Ramadan Donation Drive — HSE-UCMD</span>
-        <span>ICHPE Conference — Task Force</span>
-        <span>Zaviya Debating Event — Task Force</span>
-        <span>SAAP Conference 2024 — Task Force</span>
-        <span>Orphanage Drive — Isaar LC</span>
+        <span>World Heart Day 2025 — CARDIG, Technical Operations Lead</span>
+        <span>MOOT ER — Emergency Room Simulation, ULTH</span>
+        <span>Stop the Bleed — American College of Surgeons (Pakistan)</span>
+        <span>AHA-Certified BLS Workshop — Cardiology, ULTH</span>
+        <span>CARDIG × Rescue 1122 — CPR &amp; First Aid</span>
+        <span>Advanced ECG Workshop &amp; Poster Competition</span>
+        <span>Hypertension 101 &amp; The Hypertension League</span>
+        <span>Research Programme — Study Circle, Concept to Manuscript</span>
+        <span>Heart-Healthy Cycling — Lake City</span>
+        <span>CARDIG × Raah e Raast — Back to School Drive</span>
+        <span>Medical &amp; Hypertension Camp — Ravish × CARDIG, Androon Lahore</span>
         <span>Medical Camp — Ravish × VFAHT, Sheikhupura</span>
         <span>Medical Camp — Ravish × VFAHT, Thokar Niaz Baig</span>
-        <span>World Heart Day — CARDIG, AV Lead</span>
-        <span>Medical Camp — Ravish × CARDIG, Androon Lahore</span>
+        <span>Ramadan Donation Drive — HSE-UCMD</span>
+        <span>Orphanage Drive — Isaar LC</span>
+        <span>ICHPE Conference — Task Force</span>
+        <span>SAAP Conference 2024 — Task Force</span>
+        <span>Zaviya Debating Event — Task Force</span>
       </div>
     </div>
 
@@ -1154,24 +1278,25 @@ body.menu-open #mmenu .mm-foot{ opacity:1; }
   <div class="ch-body">
     <div class="about-grid">
       <div class="about-copy" data-reveal>
-        <p class="a-lead">A medical student who treats <em>design, film and leadership</em> as part of the same discipline: careful attention.</p>
-        <p>I'm a <strong>driven, detail-oriented medical student</strong> with a passion for education, content creation and clinical research — with hands-on experience in academic leadership, public speaking and peer mentorship.</p>
-        <p>I work at the intersection of <strong>medicine, design and film</strong> — building visual identities, brand films and student-led initiatives that hold up under real deadlines, not templates.</p>
-        <p>Proven ability to manage projects, lead student organisations, and communicate effectively across diverse clinical and creative teams.</p>
+        <p class="a-lead">A medical student who treats <em>medicine, design and leadership</em> as the same discipline: careful attention.</p>
+        <p>I'm a <strong>driven, detail-oriented 2nd-year MBBS student</strong> with a passion for medical education, content creation and clinical research — and the founder of <strong>Pakistan Psychiatric Network</strong>, a mental-health startup.</p>
+        <p>I lead <strong>student organisations at national and institutional level</strong>, direct and design the media that represents them, and build the digital platforms they run on.</p>
+        <p>Proven ability to manage projects end to end, deliver events under real deadlines, and communicate across diverse clinical and creative teams.</p>
       </div>
       <div class="specs" data-reveal>
         <div class="spec-row"><span class="k">Education</span><span class="v">MBBS, UCMD</span></div>
         <div class="spec-row"><span class="k">Location</span><span class="v">Lahore, Pakistan</span></div>
-        <div class="spec-row"><span class="k">Disciplines</span><span class="v">Medicine · Design · Film</span></div>
-        <div class="spec-row"><span class="k">Skills</span><span class="v">Leadership · Management · Multilingual</span></div>
-        <div class="spec-row"><span class="k">Tools</span><span class="v">Canva · Premiere · HyperFrames</span></div>
+        <div class="spec-row"><span class="k">Disciplines</span><span class="v">Medicine · Design · Film · Web</span></div>
+        <div class="spec-row"><span class="k">Skills</span><span class="v">Leadership · Operations · Multilingual</span></div>
+        <div class="spec-row"><span class="k">Tools</span><span class="v">Premiere Pro · Canva · HyperFrames</span></div>
+        <div class="spec-row"><span class="k">Stack</span><span class="v">Next.js · React · Astro · Supabase</span></div>
       </div>
     </div>
 
     <div class="stats" data-reveal>
-      <div class="stat"><div class="num"><span data-count="8">0</span><sup>+</sup></div><div class="lab">Leadership Roles</div></div>
-      <div class="stat"><div class="num"><span data-count="5">0</span><sup>+</sup></div><div class="lab">Talks &amp; Webinars</div></div>
-      <div class="stat"><div class="num"><span data-count="9">0</span><sup>+</sup></div><div class="lab">Camps &amp; Events</div></div>
+      <div class="stat"><div class="num"><span data-count="11">0</span><sup>+</sup></div><div class="lab">Leadership Roles</div></div>
+      <div class="stat"><div class="num"><span data-count="6">0</span><sup>+</sup></div><div class="lab">Talks &amp; Webinars</div></div>
+      <div class="stat"><div class="num"><span data-count="18">0</span><sup>+</sup></div><div class="lab">Camps &amp; Events</div></div>
       <div class="stat"><div class="num"><span data-count="3">0</span></div><div class="lab">Research Papers</div></div>
     </div>
   </div>
@@ -1239,6 +1364,7 @@ body.menu-open #mmenu .mm-foot{ opacity:1; }
           <h4>Connect</h4>
           <a href="mailto:zimran862@gmail.com">Email</a>
           <a href="https://www.linkedin.com/in/zimran-arif-581b333b6/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/justzimi352" target="_blank" rel="noopener">GitHub</a>
           <a href="tel:+923139364792">+92 313 936 4792</a>
         </div>
       </nav>
